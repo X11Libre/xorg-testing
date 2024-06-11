@@ -1,0 +1,47 @@
+# testing branch
+SOURCE_XSERVER_REPO="https://gitlab.freedesktop.org/metux/xserver.git"
+SOURCE_XSERVER_REF="master" # for collected open MRs use branch "incubate"
+
+# needs some fixes
+SOURCE_XORGPROTO_REPO="https://gitlab.freedesktop.org/metux/xorgproto.git"
+SOURCE_XORGPROTO_REF="incubate"
+
+# upstream
+SOURCE_LIBDRM_REPO="https://gitlab.freedesktop.org/metux/drm.git"
+SOURCE_LIBDRM_REF="main"
+
+# upstream
+SOURCE_XF86_INPUT_EVDEV_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-evdev.git"
+SOURCE_XF86_INPUT_EVDEV_REF="master"
+
+# upstream
+SOURCE_XF86_INPUT_LIBINPUT_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-libinput.git"
+SOURCE_XF86_INPUT_LIBINPUT_REF="master"
+
+# needs some fixes, upstream version won't build yet
+SOURCE_XF86_VIDEO_INTEL_REPO="https://gitlab.freedesktop.org/metux/xf86-video-intel.git"
+SOURCE_XF86_VIDEO_INTEL_REF="submit/misc-fixes"
+
+# upstream
+SOURCE_XF86_VIDEO_VESA_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vesa.git"
+SOURCE_XF86_VIDEO_VESA_REF="master"
+
+# upstream
+SOURCE_XKEYBOARD_CONFIG_REPO="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git"
+SOURCE_XKEYBOARD_CONFIG_REF="master"
+
+# upstream
+SOURCE_XKBCOMP_REPO="https://gitlab.freedesktop.org/xorg/app/xkbcomp.git"
+SOURCE_XKBCOMP_REF="master"
+
+# upstream
+SOURCE_FONT_XFREE86_TYPE_1_REPO="https://gitlab.freedesktop.org/xorg/font/xfree86-type1.git"
+SOURCE_FONT_XFREE86_TYPE_1_REF="master"
+
+# upstream
+SOURCE_XORG_UTIL_MACROS_REPO="https://gitlab.freedesktop.org/xorg/util/macros.git"
+SOURCE_XORG_UTIL_MACROS_REF="master"
+
+# upstream
+SOURCE_XORG_FONT_UTIL_REPO="https://gitlab.freedesktop.org/xorg/font/util.git"
+SOURCE_XORG_FONT_UTIL_REF="master"

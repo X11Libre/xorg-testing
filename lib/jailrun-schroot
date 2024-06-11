@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# jail helper for schroot
+# it's needed as external script, in order to bridge sudo
+# Note: assuming we can be called ourselves in jail at the same path
+
+set -e
+SCRIPT_ROOT_DIR=$(dirname $(dirname $(realpath "$0")))
+
+. $SCRIPT_ROOT_DIR/lib/base.sh
+
+command="$1"
+shift || true
+
+builder_chroot_name=`get_builder_chroot_name`
+
+selfcmd="$script_libdir/jailrun-$HOST_JAIL_TYPE"
+
+if [ ! "$command" ]; then
+    die "missing command"
+fi
+
+case "$command" in
+    exec)
+        TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" -- "$@" || die "failed jail command: $@"
+    ;;
+    execroot)
+        sudo TARGET_ID="$TARGET_ID" $selfcmd exec "$@"
+    ;;
+    install)
+        case "$TARGET_OS" in
+            "debian")
+                log "installing packages: $@"
+                (
+                    sudo TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" "apt-get" "update" "-q" \
+                        || die "failed apt update" ) \
+                    | (grep -vE "^Hit:[0-9]+"||true) | (grep -vE "^Reading package lists" ||true)
+                sudo TARGET_ID="$TARGET_ID" $selfcmd execroot "apt-get" "install" "-qqy" "$@" || die "failed installing packages: $@"
+            ;;
+            *)
+                die "unknown TARGET_OS=$TARGET_OS"
+            ;;
+        esac
+    ;;
+    register)
+        chroot_dir="$1"
+        sudo mkdir -p `dirname "$chroot_dir" /etc/schroot/chroot.d`
+        (
+            echo "[$builder_chroot_name]"
+            echo "description=Xorg playground: $TARGET_OS $TARGET_RELEASE"
+            echo "type=directory"
+            echo "directory=$chroot_dir"
+            echo "users=$(whoami)"
+            echo "root-groups=root"
+            echo "preserve-environment=true"
+        ) | sudo tee "/etc/schroot/chroot.d/$builder_chroot_name.conf" >/dev/null
+    ;;
+    *)
+        die "unknown command $@"
+    ;;
+esac

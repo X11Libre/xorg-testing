@@ -1,0 +1,2 @@
+HOST_SCHROOT_PACKAGES="mmdebstrap schroot"
+HOST_OS_TYPE="debian"

@@ -1,0 +1,8 @@
+HOST_JAIL_TYPE="schroot"
+HOST_OS="debian"
+HOST_CHROOT_DIR="/srv/chroots/xorg-testing"
+TARGET_ID="debian-bookworm"
+GIT_CLONE_ARGS="--depth 1"
+XORG_PREFIX="/usr/local/X11"
+XORG_DRIVERS="xf86-input-evdev xf86-input-libinput xf86-video-vesa xf86-video-intel"
+PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true"

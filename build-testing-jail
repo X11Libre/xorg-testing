@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#
+# this script builds the testing jail according to config in ./etc/site.conf
+#
+
+set -e
+SCRIPT_ROOT_DIR=$(dirname $(realpath "$0"))
+
+. $SCRIPT_ROOT_DIR/lib/base.sh
+. $SCRIPT_ROOT_DIR/lib/bootstrap.sh
+. $SCRIPT_ROOT_DIR/etc/sources.cf
+
+builder_bootstrap
+
+if [ "$1" == "force" ]; then
+    log "forcing full rebuild"
+    jailrun_root exec rm -Rf "$TARGET_WORKDIR"
+fi
+
+jailrun_root exec bash $SCRIPT_ROOT_DIR/lib/build-xserver.sh

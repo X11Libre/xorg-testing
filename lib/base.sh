@@ -49,9 +49,22 @@ export TARGET_ID
 needvar HOST_JAIL_TYPE
 jailrun_cmd="$script_libdir/jailrun-$HOST_JAIL_TYPE"
 
+needvar TARGET_OS
+. $SCRIPT_ROOT_DIR/lib/$TARGET_OS/targetfunc.sh
+
 get_builder_chroot_name() {
     needvar TARGET_ID
     echo -n "xorg-$TARGET_ID"
+}
+
+get_builder_chroot_dir() {
+    needvar TARGET_ID HOST_CHROOT_DIR
+    echo -n "$HOST_CHROOT_DIR/$(get_builder_chroot_name $TARGET_ID)"
+}
+
+get_builder_tarball_dir() {
+    needvar HOST_CHROOT_DIR
+    echo -n "$HOST_CHROOT_DIR/tarballs"
 }
 
 jailrun() {

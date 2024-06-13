@@ -20,6 +20,7 @@ export TARGET_ID
 
 . $SCRIPT_ROOT_DIR/etc/targets/$TARGET_ID.cf
 . $SCRIPT_ROOT_DIR/etc/hosts/$HOST_OS.cf
+. $SCRIPT_ROOT_DIR/lib/$HOST_OS/hostfunc.sh
 
 jailrun_cmd="$script_libdir/jailrun-$HOST_JAIL_TYPE"
 
@@ -35,15 +36,4 @@ jailrun() {
 jailrun_root() {
     sudo TARGET_ID="$TARGET_ID" $script_libdir/jailrun-$HOST_JAIL_TYPE "$@"
     return $?
-}
-
-host_install() {
-    case "$HOST_OS" in
-        "debian")
-            sudo apt-get -qq install -y "$@"
-        ;;
-        *)
-            die "host_install: HOST_OS=$HOST_OS not supported"
-        ;;
-    esac
 }

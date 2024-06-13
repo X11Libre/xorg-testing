@@ -42,7 +42,8 @@ builder_bootstrap() {
     [ "$TARGET_PACKAGES" ] || die "missing TARGET_PACKAGES"
     [ "$HOST_CHROOT_DIR" ] || die "missing HOST_CHROOT_DIR"
 
-    host_install $HOST_PACKAGES
+    # call the host-OS specific setup function
+    host_os_setup
 
     case "$HOST_JAIL_TYPE" in
         schroot)

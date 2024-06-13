@@ -1,6 +1,6 @@
 # testing branch
 SOURCE_XSERVER_REPO="https://gitlab.freedesktop.org/metux/xserver.git"
-SOURCE_XSERVER_REF="master" # for collected open MRs use branch "incubate"
+SOURCE_XSERVER_REF="incubate" # for collected open MRs use branch "incubate"
 
 # needs some fixes
 SOURCE_XORGPROTO_REPO="https://gitlab.freedesktop.org/metux/xorgproto.git"

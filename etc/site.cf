@@ -1,4 +1,3 @@
-HOST_JAIL_TYPE="schroot"
 HOST_OS="debian"
 HOST_CHROOT_DIR="/srv/chroots/xorg-testing"
 TARGET_ID="debian-bookworm"

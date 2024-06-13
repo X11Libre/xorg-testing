@@ -57,6 +57,9 @@ case "$command" in
             echo "preserve-environment=true"
         ) | sudo tee "/etc/schroot/chroot.d/$builder_chroot_name.conf" >/dev/null
     ;;
+    syncme)
+        log "no need to sync ourself on schroot"
+    ;;
     *)
         die "unknown command $@"
     ;;

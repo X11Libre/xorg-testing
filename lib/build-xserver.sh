@@ -11,7 +11,7 @@ TARGET_CC_ARCH=$(gcc -dumpmachine)
 ARCH_LIBDIR="lib/$TARGET_CC_ARCH/"
 
 # fixme: this could be os/distro specific
-export PKG_CONFIG_PATH="$XORG_PREFIX/share/pkgconfig:$XORG_PREFIX/$ARCH_LIBDIR/pkgconfig"
+export PKG_CONFIG_PATH="$XORG_PREFIX/share/pkgconfig:$XORG_PREFIX/lib/pkgconfig:$XORG_PREFIX/$ARCH_LIBDIR/pkgconfig:$XORG_PREFIX/libdata/pkgconfig:/usr/local/libdata"
 
 build_package xorg-util-macros
 build_package xorgproto

@@ -1,0 +1,10 @@
+HOST_SCHROOT_PACKAGES="boost-all"
+HOST_OS_TYPE="freebsd"
+HOST_JAIL_TYPE="bsdjail"
+HOST_PORTS_REPO="https://git.freebsd.org/ports.git"
+HOST_PORTS_REF="master"
+HOST_PORTS_PKG="cmake"
+HOST_JAILS_PREFIX="/usr/local/jails"
+HOST_PACKAGES="sudo"
+
+[ "$TARGET_ID" ] || export TARGET_ID="$FREEBSD_TARGET_ID"

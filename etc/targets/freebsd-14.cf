@@ -1,0 +1,15 @@
+TARGET_OS="freebsd"
+TARGET_WORKDIR="/srv/xorg-playground"
+TARGET_RELEASE="14.0"
+TARGET_ARCH="amd64"
+TARGET_PACKAGES="
+    bash git gcc pkgconf autoconf automake libtool xorg-macros xorgproto meson
+    ninja pixman xtrans libXau libXdmcp libXfont libXfont2 libxkbfile libxcvt
+    libpciaccess font-util libepoll-shim libdrm mesa-libs libglu mesa-dri
+    libepoxy nettle xkbcomp libXvMC xcb-util valgrind libXcursor libXScrnSaver
+    libXinerama libXtst evdev-proto libevdev libmtdev libinput spice-protocol
+    libspice-server libX11 libxshmfence python3 py39-StrEnum fontconfig
+    mkfontscale
+"
+
+PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"

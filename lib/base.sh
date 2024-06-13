@@ -20,11 +20,30 @@ script_libdir="$SCRIPT_ROOT_DIR/lib"
 script_name=$(basename "$0")
 
 . $SCRIPT_ROOT_DIR/etc/site.cf
-needvar TARGET_ID HOST_OS
+
+## probe the host OS
+if [ ! "$HOST_OS" ]; then
+    case $(uname) in
+        Linux)
+            log "detected Linux - assuming debian (set HOST_OS if I'm wrong)"
+            export HOST_OS="debian"
+        ;;
+        FreeBSD)
+            log "detected FreeBSD"
+            export HOST_OS="freebsd"
+        ;;
+        *)
+            die "unknown uname: $(uname)"
+        ;;
+    esac
+fi
+
+. $SCRIPT_ROOT_DIR/etc/hosts/$HOST_OS.cf
+
+needvar TARGET_ID
 export TARGET_ID
 
 . $SCRIPT_ROOT_DIR/etc/targets/$TARGET_ID.cf
-. $SCRIPT_ROOT_DIR/etc/hosts/$HOST_OS.cf
 . $SCRIPT_ROOT_DIR/lib/$HOST_OS/hostfunc.sh
 
 needvar HOST_JAIL_TYPE

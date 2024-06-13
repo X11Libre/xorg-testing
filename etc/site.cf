@@ -1,4 +1,5 @@
-HOST_OS="debian"
+# not set - autodetect
+# HOST_OS="freebsd"
 HOST_CHROOT_DIR="/srv/chroots/xorg-testing"
 TARGET_ID="debian-bookworm"
 GIT_CLONE_ARGS="--depth 1"

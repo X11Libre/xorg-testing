@@ -88,21 +88,21 @@ build_package() {
     rm -Rf $workdir/_build
     mkdir -p $workdir/_build
 
-    if [ -f $workdir/meson.build ]; then
-    (
-        echo "building by meson: $id"
-        cd $workdir/_build
-        meson setup -Dprefix="$XORG_PREFIX" $args
-        meson compile
-        meson install
-    )
-    else
+    if [ -f $workdir/autogen.sh ]; then
     (
         echo "building by autotools: $id"
         cd $workdir/_build
         ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" ../autogen.sh --prefix="$XORG_PREFIX" $args
         make
         make install
+    )
+    else
+    (
+        echo "building by meson: $id"
+        cd $workdir/_build
+        meson setup -Dprefix="$XORG_PREFIX" $args
+        meson compile
+        meson install
     )
     fi
     mark_done "$id"

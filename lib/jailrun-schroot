@@ -9,6 +9,8 @@ SCRIPT_ROOT_DIR=$(dirname $(dirname $(realpath "$0")))
 
 . $SCRIPT_ROOT_DIR/lib/base.sh
 
+needvar TARGET_ID HOST_JAIL_TYPE
+
 command="$1"
 shift || true
 

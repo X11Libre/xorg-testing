@@ -38,9 +38,7 @@ chroot_bootstrap_distro() {
 }
 
 builder_bootstrap() {
-    [ "$TARGET_RELEASE" ]  || die "missing TARGET_RELEASE"
-    [ "$TARGET_PACKAGES" ] || die "missing TARGET_PACKAGES"
-    [ "$HOST_CHROOT_DIR" ] || die "missing HOST_CHROOT_DIR"
+    needvar TARGET_RELEASE TARGET_PACKAGES HOST_CHROOT_DIR
 
     # call the host-OS specific setup function
     host_os_setup

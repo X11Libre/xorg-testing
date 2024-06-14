@@ -3,6 +3,7 @@
 
 get_workdir() {
     local id="$1"
+    needvar TARGET_WORKDIR
     echo -n "$TARGET_WORKDIR/$id.git"
 }
 
@@ -53,16 +54,19 @@ clone_work_repos() {
 
 mark_done() {
     local id="$1"
+    needvar TARGET_WORKDIR
     touch "$TARGET_WORKDIR/$id.DONE"
 }
 
 mark_undone() {
     local id="$1"
+    needvar TARGET_WORKDIR
     rm -f "$TARGET_WORKDIR/$id.DONE"
 }
 
 if_done() {
     local id="$1"
+    needvar TARGET_WORKDIR
     if [ -f "$TARGET_WORKDIR/$id.DONE" ]; then
         log "package $id already built. skipping"
         return 0

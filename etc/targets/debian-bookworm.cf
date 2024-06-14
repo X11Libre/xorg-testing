@@ -6,3 +6,5 @@ TARGET_PACKAGES="build-essential git meson autoconf xorg-dev xutils-dev
                  valgrind libxshmfence-dev libxcb-dri3-dev libxv-dev"
 TARGET_WORKDIR="/srv/xorg-playground"
 TARGET_RELEASE="bookworm"
+
+PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true"

@@ -1,4 +1,3 @@
-TARGET_TYPE="schroot"
 TARGET_OS="debian"
 TARGET_PACKAGES="build-essential git meson autoconf xorg-dev xutils-dev
                  libudev-dev libssl-dev libepoxy-dev libdrm-dev yacc

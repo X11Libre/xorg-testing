@@ -20,3 +20,4 @@ fi
 
 jailrun syncme
 jailrun_root exec bash $SCRIPT_ROOT_DIR/lib/build-xserver.sh
+jailrun stop

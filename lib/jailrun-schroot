@@ -60,7 +60,9 @@ case "$command" in
     syncme)
         log "no need to sync ourself on schroot"
     ;;
+    stop)
+    ;;
     *)
-        die "unknown command $@"
+        die "unknown command $0 $@"
     ;;
 esac

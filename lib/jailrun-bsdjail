@@ -89,7 +89,10 @@ __EOF__
     syncme)
         sudo rsync -r "$SCRIPT_ROOT_DIR/" "$(get_builder_chroot_dir)/$SCRIPT_ROOT_DIR"
     ;;
+    stop)
+        sudo jail -r "${builder_jail_name}"
+    ;;
     *)
-        die "unknown command $@"
+        die "unknown command $0 $@"
     ;;
 esac

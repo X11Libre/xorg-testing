@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # jail helper for schroot
 # it's needed as external script, in order to bridge sudo

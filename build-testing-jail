@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # this script builds the testing jail according to config in ./etc/site.conf

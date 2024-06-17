@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+# jail helper for sandbox(1)
+# it's needed as external script, in order to bridge sudo
+# Note: assuming we can be called ourselves in jail at the same path
+
+echo "NETBSD JAIL $0 $@"
+
+set -e
+SCRIPT_ROOT_DIR=$(dirname $(dirname $(realpath "$0")))
+
+. $SCRIPT_ROOT_DIR/lib/base.sh
+
+needvar TARGET_ID HOST_JAIL_TYPE
+
+command="$1"
+shift || true
+
+sandbox_name=$(get_builder_chroot_name)
+
+selfcmd="$script_libdir/jailrun-$HOST_JAIL_TYPE"
+chroot_dir="$(get_builder_chroot_dir)"
+
+if [ ! "$command" ]; then
+    die "missing command"
+fi
+
+case "$command" in
+    exec)
+        log "sandbox exec: $@"
+        TARGET_ID="$TARGET_ID" sandboxctl -c "${sandbox_name}" run "$@" || die "failed jail command: $@"
+    ;;
+    execroot)
+        sudo TARGET_ID="$TARGET_ID" $selfcmd exec "$@"
+    ;;
+    install)
+        case "$TARGET_OS" in
+            "debian")
+                log "installing packages (apt): $@"
+                sudo sandboxctl -c "${sandbox_name}" run apt-get update -q
+                sudo sandboxctl -c "${sandbox_name}" run apt-get install -y -qqy "$@" || die "failed installing packages: $@"
+            ;;
+            "freebsd")
+                log "install packages (pkg): $@"
+                sudo sandboxctl -c "${sandbox_name}" pkg install -y "$@"
+            ;;
+            "netbsd")
+                log "install packages (pkgin): $@"
+                sudo sandboxctl -c "${sandbox_name}" run pkgin -y install "$@"
+            ;;
+            *)
+                die "install: unknown TARGET_OS=$TARGET_OS"
+            ;;
+        esac
+    ;;
+    register)
+        echo "sandbox register"
+        sudo cp /etc/resolv.conf "$chroot_dir/etc"
+    ;;
+    syncme)
+        sudo rsync -r "$SCRIPT_ROOT_DIR/" "$chroot_dir/$SCRIPT_ROOT_DIR"
+    ;;
+    stop)
+        sudo sandboxctl -c "${sandbox_name}" unmount -f
+    ;;
+    *)
+        die "unknown command $@"
+    ;;
+esac

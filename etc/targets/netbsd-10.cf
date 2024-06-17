@@ -1,0 +1,18 @@
+TARGET_OS="netbsd"
+TARGET_WORKDIR="/srv/xorg-playground"
+TARGET_RELEASE="10.0"
+TARGET_ARCH="amd64"
+TARGET_PACKAGES="
+    bash git pkgconf autoconf automake libtool xorgproto meson pixman xtrans
+    libxkbfile libxcvt libpciaccess font-util libepoll-shim libepoxy nettle
+    xkbcomp xcb-util libXcursor libXScrnSaver spice-protocol fontconfig
+    mkfontscale python311
+"
+TARGET_SETS="base comp debug etc misc tests text xbase xcomp xdebug xetc xfont xserver"
+
+PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"
+PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
+
+[ "${NETBSD_10_DRIVERS}" ] || NETBSD_10_DRIVERS="xf86-input-keyboard xf86-input-mouse xf86-video-vesa xf86-video-intel"
+
+XORG_DRIVERS="${XORG_DRIVERS} ${NETBSD_10_DRIVERS}"

@@ -9,3 +9,6 @@ FREEBSD_TARGET_ID="freebsd-14"
 
 # target when running on Debian host
 DEBIAN_TARGET_ID="debian-bookworm"
+
+# target when running on NetBSD host
+NETBSD_TARGET_ID="netbsd-10"

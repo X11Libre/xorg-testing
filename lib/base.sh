@@ -32,6 +32,10 @@ if [ ! "$HOST_OS" ]; then
             log "detected FreeBSD"
             export HOST_OS="freebsd"
         ;;
+        NetBSD)
+            log "detected NetBSD"
+            export HOST_OS="netbsd"
+        ;;
         *)
             die "unknown uname: $(uname)"
         ;;

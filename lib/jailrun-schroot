@@ -26,9 +26,6 @@ case "$command" in
     exec)
         TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" -- "$@" || die "failed jail command: $@"
     ;;
-    execroot)
-        sudo TARGET_ID="$TARGET_ID" $selfcmd exec "$@"
-    ;;
     install)
         case "$TARGET_OS" in
             "debian")
@@ -37,7 +34,7 @@ case "$command" in
                     sudo TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" "apt-get" "update" "-q" \
                         || die "failed apt update" ) \
                     | (grep -vE "^Hit:[0-9]+"||true) | (grep -vE "^Reading package lists" ||true)
-                sudo TARGET_ID="$TARGET_ID" $selfcmd execroot "apt-get" "install" "-qqy" "$@" || die "failed installing packages: $@"
+                sudo TARGET_ID="$TARGET_ID" $selfcmd exec "apt-get" "install" "-qqy" "$@" || die "failed installing packages: $@"
             ;;
             *)
                 die "unknown TARGET_OS=$TARGET_OS"

@@ -27,9 +27,6 @@ case "$command" in
         log "jail exec: $@"
         TARGET_ID="$TARGET_ID" jexec "$builder_jail_name" "$@" || die "failed jail command: $@"
     ;;
-    execroot)
-        sudo TARGET_ID="$TARGET_ID" $selfcmd exec "$@"
-    ;;
     install)
         case "$TARGET_OS" in
             "debian")

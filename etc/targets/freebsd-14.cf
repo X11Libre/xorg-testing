@@ -13,3 +13,7 @@ TARGET_PACKAGES="
 "
 
 PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"
+
+[ "${FREEBSD_14_DRIVERS}" ] || FREEBSD_14_DRIVERS="xf86-input-evdev xf86-input-libinput xf86-video-vesa xf86-video-intel"
+
+XORG_DRIVERS="${XORG_DRIVERS} ${FREEBSD_14_DRIVERS}"

@@ -34,6 +34,10 @@ SOURCE_XF86_VIDEO_INTEL_REF="submit/misc-fixes"
 SOURCE_XF86_VIDEO_VESA_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vesa.git"
 SOURCE_XF86_VIDEO_VESA_REF="master"
 
+# testing branch
+SOURCE_XF86_VIDEO_WSFB_REPO="https://gitlab.freedesktop.org/metux/xf86-video-wsfb.git"
+SOURCE_XF86_VIDEO_WSFB_REF="incubate"
+
 # upstream
 SOURCE_XKEYBOARD_CONFIG_REPO="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git"
 SOURCE_XKEYBOARD_CONFIG_REF="master"

@@ -13,6 +13,10 @@ TARGET_SETS="base comp debug etc misc tests text xbase xcomp xdebug xetc xfont x
 PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"
 PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
 
-[ "${NETBSD_10_DRIVERS}" ] || NETBSD_10_DRIVERS="xf86-input-keyboard xf86-input-mouse xf86-video-vesa xf86-video-intel"
+[ "${NETBSD_10_DRIVERS}" ] || NETBSD_10_DRIVERS="xf86-input-keyboard
+                                                 xf86-input-mouse
+                                                 xf86-video-vesa
+                                                 xf86-video-intel
+                                                 xf86-video-wsfb"
 
 XORG_DRIVERS="${XORG_DRIVERS} ${NETBSD_10_DRIVERS}"

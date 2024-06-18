@@ -18,6 +18,14 @@ SOURCE_XF86_INPUT_EVDEV_REF="master"
 SOURCE_XF86_INPUT_LIBINPUT_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-libinput.git"
 SOURCE_XF86_INPUT_LIBINPUT_REF="master"
 
+# upstream
+SOURCE_XF86_INPUT_MOUSE_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-mouse.git"
+SOURCE_XF86_INPUT_MOUSE_REF="master"
+
+# upstream
+SOURCE_XF86_INPUT_KEYBOARD_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard.git"
+SOURCE_XF86_INPUT_KEYBOARD_REF="master"
+
 # needs some fixes, upstream version won't build yet
 SOURCE_XF86_VIDEO_INTEL_REPO="https://gitlab.freedesktop.org/metux/xf86-video-intel.git"
 SOURCE_XF86_VIDEO_INTEL_REF="submit/misc-fixes"

@@ -16,6 +16,19 @@ For the future also planned adding test cases that can be run automatically.
 Possibly also test cycle automation *(eg. via labgrid)*, so one doesn't even
 need to manually log on individual DUTs anymore.
 
+## Supported platforms
+
+* GNU/Linux (apt-based, eg. Debian)
+* FreeBSD 14
+* NetBSD 10
+
+## Prerequisites
+
+* git (for cloning this repo)
+* bash (this script)
+* on NetBSD: pkgin
+* anything else should be pulled in automatically
+
 ## Configuration
 
 * all configs residing under [`./etc`](etc) subdirectory

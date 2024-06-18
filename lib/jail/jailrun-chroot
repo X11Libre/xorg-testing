@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# jail helper for schroot
+# it's needed as external script, in order to bridge sudo
+# Note: assuming we can be called ourselves in jail at the same path
+
+set -e
+SCRIPT_ROOT_DIR=$(dirname $(dirname $(dirname $(realpath "$0"))))
+
+. $SCRIPT_ROOT_DIR/lib/base.sh
+
+needvar TARGET_ID HOST_JAIL_TYPE
+
+command="$1"
+shift || true
+
+chroot_dir="$(get_builder_chroot_dir)"
+
+if [ ! "$command" ]; then
+    die "missing command"
+fi
+
+case "$command" in
+    exec)
+        TARGET_ID="$TARGET_ID" sudo chroot "${chroot_dir}" "$@" || die "failed jail command: $@"
+    ;;
+    install)
+        sudo chroot "${chroot_dir}" "$SCRIPT_ROOT_DIR/lib/os/$TARGET_OS/target-package-install" "$@"
+    ;;
+    register)
+    ;;
+    syncme)
+        sudo rsync --no-acls -r "$SCRIPT_ROOT_DIR/" "$chroot_dir/$SCRIPT_ROOT_DIR"
+    ;;
+    stop)
+    ;;
+    *)
+        die "unknown command $0 $@"
+    ;;
+esac

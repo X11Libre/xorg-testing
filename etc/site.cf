@@ -12,3 +12,6 @@ DEBIAN_TARGET_ID="debian-bookworm"
 
 # target when running on NetBSD host
 NETBSD_TARGET_ID="netbsd-10"
+
+# target when running on OpenBSD host
+OPENBSD_TARGET_ID="openbsd-7.5"

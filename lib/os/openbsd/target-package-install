@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# call be inside chroot to install target packages
+#
+
+set -e
+
+# pkg_add needs this
+chmod ugo+rwx tmp
+
+while [ "$1" ]; do
+    if [ ! -f "/.installed.$1" ]; then
+        echo "Need to install $1"
+        pkg_add -I "$1"
+        touch "/.installed.$1"
+    fi
+    shift
+done
+
+mkdir -p /var/run
+ldconfig
+ldconfig -R /usr/local/lib /usr/X11R6/lib/ || (echo "ldconfig failed"; false)

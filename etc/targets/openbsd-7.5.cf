@@ -1,0 +1,28 @@
+TARGET_OS="openbsd"
+TARGET_WORKDIR="/srv/xorg-playground"
+TARGET_RELEASE="7.5"
+TARGET_ARCH="amd64"
+TARGET_PACKAGES="
+    bash git pkgconf autoconf-2.71 automake-1.16.5 libtool meson
+    spice-protocol epoll-shim py3-backports-strenum
+"
+TARGET_SETS="base75 comp75 man75 xbase75 xfont75 xserv75 xshare75"
+TARGET_MIRROR="https://cdn.openbsd.org/pub/OpenBSD"
+
+PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"
+PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
+
+[ "${OPENBSD_7_5_DRIVERS}" ] || OPENBSD_7_5_DRIVERS="xf86-input-keyboard
+                                                     xf86-input-mouse
+                                                     xf86-video-vesa
+                                                     xf86-video-intel
+                                                     xf86-video-wsfb"
+
+XORG_DRIVERS="${XORG_DRIVERS} ${OPENBSD_7_5_DRIVERS}"
+
+# autotools wrappers on OpenBSD need this
+export AUTOCONF_VERSION=2.71
+export AUTOMAKE_VERSION=1.16
+
+# needed for extra python modules
+export PYTHONPATH=/usr/local/lib/python3.10/site-packages/backports

@@ -21,6 +21,7 @@ need to manually log on individual DUTs anymore.
 * GNU/Linux (apt-based, eg. Debian)
 * FreeBSD 14
 * NetBSD 10
+* OpenBSD 7.5
 
 ## Prerequisites
 

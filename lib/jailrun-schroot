@@ -27,7 +27,7 @@ case "$command" in
         TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" -- "$@" || die "failed jail command: $@"
     ;;
     install)
-        sudo schroot -c "$builder_chroot_name" -- "$SCRIPT_ROOT_DIR/lib/$TARGET_OS/target-package-install" "$@"
+        sudo schroot -c "$builder_chroot_name" -- "$SCRIPT_ROOT_DIR/lib/os/$TARGET_OS/target-package-install" "$@"
     ;;
     register)
         chroot_dir="$1"

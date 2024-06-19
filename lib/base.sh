@@ -48,13 +48,13 @@ needvar TARGET_ID
 export TARGET_ID
 
 . $SCRIPT_ROOT_DIR/etc/targets/$TARGET_ID.cf
-. $SCRIPT_ROOT_DIR/lib/$HOST_OS/hostfunc.sh
+. $SCRIPT_ROOT_DIR/lib/os/$HOST_OS/hostfunc.sh
 
 needvar HOST_JAIL_TYPE
 jailrun_cmd="$script_libdir/jailrun-$HOST_JAIL_TYPE"
 
 needvar TARGET_OS
-. $SCRIPT_ROOT_DIR/lib/$TARGET_OS/targetfunc.sh
+. $SCRIPT_ROOT_DIR/lib/os/$TARGET_OS/targetfunc.sh
 
 get_builder_chroot_name() {
     needvar TARGET_ID

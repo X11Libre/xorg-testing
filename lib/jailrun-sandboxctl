@@ -32,7 +32,7 @@ case "$command" in
         sudo TARGET_ID="$TARGET_ID" $selfcmd exec "$@"
     ;;
     install)
-        sudo sandboxctl -c "${sandbox_name}" run "$SCRIPT_ROOT_DIR/lib/$TARGET_OS/target-package-install" "$@"
+        sudo sandboxctl -c "${sandbox_name}" run "$SCRIPT_ROOT_DIR/lib/os/$TARGET_OS/target-package-install" "$@"
     ;;
     register)
         echo "sandbox register"

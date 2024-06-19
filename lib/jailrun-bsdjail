@@ -28,7 +28,7 @@ case "$command" in
         TARGET_ID="$TARGET_ID" jexec "$builder_jail_name" "$@" || die "failed jail command: $@"
     ;;
     install)
-        sudo jexec "$builder_jail_name" "$SCRIPT_ROOT_DIR/lib/$TARGET_OS/target-package-install" "$@"
+        sudo jexec "$builder_jail_name" "$SCRIPT_ROOT_DIR/lib/os/$TARGET_OS/target-package-install" "$@"
     ;;
     register)
         chroot_dir="$1"

@@ -39,5 +39,5 @@ builder_bootstrap() {
 
     jailrun register "$(get_builder_chroot_dir)"
     jailrun syncme
-    jailrun install $TARGET_PACKAGES
+    jailrun install $TARGET_PACKAGES || die "installing target packages failed"
 }

@@ -55,7 +55,7 @@ clone_work_repos() {
 mark_done() {
     local id="$1"
     needvar TARGET_WORKDIR
-    touch "$TARGET_WORKDIR/$id.DONE"
+    git --git-dir=$(get_workdir "$id")/.git rev-parse HEAD > "$TARGET_WORKDIR/$id.DONE"
 }
 
 mark_undone() {
@@ -67,7 +67,13 @@ mark_undone() {
 if_done() {
     local id="$1"
     needvar TARGET_WORKDIR
-    if [ -f "$TARGET_WORKDIR/$id.DONE" ]; then
+
+    local newrev="$(git --git-dir=$(get_workdir "$id")/.git rev-parse HEAD)"
+    local oldrev="$(cat $TARGET_WORKDIR/$id.DONE 2>/dev/null || true)"
+
+    log "$id: oldrev=$oldrev newrev=$newrev"
+
+    if [ "$oldrev" == "$newrev" ]; then
         log "package $id already built. skipping"
         return 0
     else

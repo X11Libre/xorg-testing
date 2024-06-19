@@ -38,5 +38,6 @@ builder_bootstrap() {
     chroot_bootstrap_distro
 
     jailrun register "$(get_builder_chroot_dir)"
+    jailrun syncme
     jailrun install $TARGET_PACKAGES
 }

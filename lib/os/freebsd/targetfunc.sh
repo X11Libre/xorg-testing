@@ -16,6 +16,7 @@ target_bootstrap_chroot() {
     rm -Rf "$chroot_dir"
     mkdir -p "$chroot_dir"
     tar -xf "$tarball_fn" -C "$chroot_dir"
+    chflags -R noschg "$chroot_dir"
 
     if [ -f /etc/resolv.conf ]; then cp /etc/resolv.conf "$chroot_dir/etc/" ; fi
     if [ -f /etc/localtime ]; then cp /etc/localtime   "$chroot_dir/etc/" ; fi

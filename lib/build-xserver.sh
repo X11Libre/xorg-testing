@@ -7,7 +7,7 @@ SCRIPT_ROOT_DIR=$(dirname $(realpath "$0"))/../
 
 . $SCRIPT_ROOT_DIR/lib/builder.sh
 
-TARGET_CC_ARCH=$(gcc -dumpmachine)
+TARGET_CC_ARCH=$(cc -dumpmachine)
 ARCH_LIBDIR="lib/$TARGET_CC_ARCH/"
 
 # fixme: this could be os/distro specific

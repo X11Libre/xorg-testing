@@ -51,7 +51,6 @@ export TARGET_ID
 . $SCRIPT_ROOT_DIR/lib/os/$HOST_OS/hostfunc.sh
 
 needvar HOST_JAIL_TYPE
-jailrun_cmd="$script_libdir/jailrun-$HOST_JAIL_TYPE"
 
 needvar TARGET_OS
 . $SCRIPT_ROOT_DIR/lib/os/$TARGET_OS/targetfunc.sh
@@ -73,12 +72,12 @@ get_builder_tarball_dir() {
 
 jailrun() {
     needvar HOST_JAIL_TYPE
-    $script_libdir/jailrun-$HOST_JAIL_TYPE "$@"
+    $script_libdir/jail/jailrun-$HOST_JAIL_TYPE "$@"
     return $?
 }
 
 jailrun_root() {
     needvar TARGET_ID
-    sudo TARGET_ID="$TARGET_ID" $script_libdir/jailrun-$HOST_JAIL_TYPE "$@"
+    sudo TARGET_ID="$TARGET_ID" $script_libdir/jail/jailrun-$HOST_JAIL_TYPE "$@"
     return $?
 }

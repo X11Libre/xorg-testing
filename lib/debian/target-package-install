@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# call be inside chroot to install target packages
+#
+
+set -e
+
+echo "installing packages: $@"
+apt-get update -q | (grep -vE "^Hit:[0-9]+"||true) | (grep -vE "^Reading package lists" ||true)
+apt-get install "-qqy" "$@"

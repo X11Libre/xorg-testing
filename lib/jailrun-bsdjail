@@ -28,20 +28,7 @@ case "$command" in
         TARGET_ID="$TARGET_ID" jexec "$builder_jail_name" "$@" || die "failed jail command: $@"
     ;;
     install)
-        case "$TARGET_OS" in
-            "debian")
-                log "installing packages (apt): $@"
-                sudo jexec "$builder_jail_name" apt-get update -q
-                sudo jexec "$builder_jail_name" apt-get install -y -qqy "$@" || die "failed installing packages: $@"
-            ;;
-            "freebsd")
-                log "install packages (pkg): $@"
-                sudo jexec "$builder_jail_name" pkg install -y "$@"
-            ;;
-            *)
-                die "install: unknown TARGET_OS=$TARGET_OS"
-            ;;
-        esac
+        sudo jexec "$builder_jail_name" "$SCRIPT_ROOT_DIR/lib/$TARGET_OS/target-package-install" "$@"
     ;;
     register)
         chroot_dir="$1"

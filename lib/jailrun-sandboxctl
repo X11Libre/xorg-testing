@@ -34,24 +34,7 @@ case "$command" in
         sudo TARGET_ID="$TARGET_ID" $selfcmd exec "$@"
     ;;
     install)
-        case "$TARGET_OS" in
-            "debian")
-                log "installing packages (apt): $@"
-                sudo sandboxctl -c "${sandbox_name}" run apt-get update -q
-                sudo sandboxctl -c "${sandbox_name}" run apt-get install -y -qqy "$@" || die "failed installing packages: $@"
-            ;;
-            "freebsd")
-                log "install packages (pkg): $@"
-                sudo sandboxctl -c "${sandbox_name}" pkg install -y "$@"
-            ;;
-            "netbsd")
-                log "install packages (pkgin): $@"
-                sudo sandboxctl -c "${sandbox_name}" run pkgin -y install "$@"
-            ;;
-            *)
-                die "install: unknown TARGET_OS=$TARGET_OS"
-            ;;
-        esac
+        sudo sandboxctl -c "${sandbox_name}" run "$SCRIPT_ROOT_DIR/lib/$TARGET_OS/target-package-install" "$@"
     ;;
     register)
         echo "sandbox register"

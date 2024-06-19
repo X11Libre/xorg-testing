@@ -27,19 +27,7 @@ case "$command" in
         TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" -- "$@" || die "failed jail command: $@"
     ;;
     install)
-        case "$TARGET_OS" in
-            "debian")
-                log "installing packages: $@"
-                (
-                    sudo TARGET_ID="$TARGET_ID" schroot -c "$builder_chroot_name" "apt-get" "update" "-q" \
-                        || die "failed apt update" ) \
-                    | (grep -vE "^Hit:[0-9]+"||true) | (grep -vE "^Reading package lists" ||true)
-                sudo TARGET_ID="$TARGET_ID" $selfcmd exec "apt-get" "install" "-qqy" "$@" || die "failed installing packages: $@"
-            ;;
-            *)
-                die "unknown TARGET_OS=$TARGET_OS"
-            ;;
-        esac
+        sudo schroot -c "$builder_chroot_name" -- "$SCRIPT_ROOT_DIR/lib/$TARGET_OS/target-package-install" "$@"
     ;;
     register)
         chroot_dir="$1"

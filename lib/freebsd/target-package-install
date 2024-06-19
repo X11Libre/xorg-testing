@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# call be inside chroot to install target packages
+#
+
+set -e
+
+echo "installing packages: $@"
+pkg install -y "$@"

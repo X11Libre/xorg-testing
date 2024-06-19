@@ -45,8 +45,8 @@ need to manually log on individual DUTs anymore.
 
 ## Troubleshooting
 
-* chroot's are stored under `$HOST_CHROOT_DIR` *(default `/srv/chroots/xorg-testing/`)*
-* in worst case the chroot can always be removed *(`/srv/chroots/xorg-testing/<TARGET_ID>`)*
+* chroot's are stored under `$HOST_CHROOT_DIR` *(default `/var/chroots/xorg-testing/`)*
+* in worst case the chroot can always be removed *(`/var/chroots/xorg-testing/<TARGET_ID>`)*
 * forcing re-clone and rebuild: remove the git clone *(in chroot, under `/srv/xorg-testing/...`)* as well as the corresponding `*.DONE` file
 * automatic rebuild also happens when the HEAD of the package's git clone changes *(eg. pulled, committed or changed branch)*
 

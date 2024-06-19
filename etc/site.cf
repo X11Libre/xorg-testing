@@ -1,6 +1,6 @@
 # not set - autodetect
 # HOST_OS="freebsd"
-HOST_CHROOT_DIR="/srv/chroots/xorg-testing"
+HOST_CHROOT_DIR="/var/chroots/xorg-testing"
 GIT_CLONE_ARGS="--depth 1"
 XORG_PREFIX="/usr/local/X11"
 

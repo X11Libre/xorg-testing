@@ -32,6 +32,11 @@ build_package xorg-util-macros
 build_package xorgproto
 build_package xorg-font-util
 build_package libdrm
+
+for i in $XORG_EXTRA_DEPS ; do
+    build_package $i
+done
+
 build_package xserver
 build_package xkeyboard-config
 build_package xkbcomp

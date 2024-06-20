@@ -5,7 +5,7 @@
 # Note: assuming we can be called ourselves in jail at the same path
 
 set -e
-SCRIPT_ROOT_DIR=$(dirname $(dirname $(dirname $(realpath "$0"))))
+SCRIPT_ROOT_DIR="$(cd "$(dirname "$0")/../../" && pwd -P)"
 
 . $SCRIPT_ROOT_DIR/lib/base.sh
 

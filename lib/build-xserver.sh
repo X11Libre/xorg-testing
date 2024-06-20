@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # execute me in ONLY in jail, never on host
 

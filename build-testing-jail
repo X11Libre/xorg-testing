@@ -19,7 +19,7 @@ if [ "$1" == "force" ]; then
 fi
 
 jailrun syncme
-jailrun_root exec bash $SCRIPT_ROOT_DIR/lib/build-xserver.sh
+jailrun_root exec $SCRIPT_ROOT_DIR/lib/build-xserver.sh
 jailrun stop
 
 log "Xorg jail build finished"

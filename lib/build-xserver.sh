@@ -4,7 +4,7 @@
 
 set -e
 set +x
-SCRIPT_ROOT_DIR=$(dirname $(realpath "$0"))/../
+SCRIPT_ROOT_DIR="$(cd "$(dirname "$0")/../" && pwd -P)"
 
 . $SCRIPT_ROOT_DIR/lib/builder.sh
 

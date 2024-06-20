@@ -1,0 +1,44 @@
+TARGET_OS="illumos"
+TARGET_WORKDIR="/srv/xorg-playground"
+TARGET_RELEASE="hipster"
+TARGET_ARCH="amd64"
+TARGET_PACKAGES="
+    meson gcc-13
+    developer/build/autoconf
+    developer/build/libtool
+    developer/build/automake
+    developer/build/gnu-make
+    developer/build/pkgconf
+    developer/build/pkg-config
+    developer/versioning/git
+    file/gnu-coreutils
+    library/python/pip-39
+    shell/bash
+    service/opengl/ogl-select
+    system/header/header-audio
+    system/header/header-drm
+    system/header/header-usb
+    text/gawk
+    x11/keyboard/xkbcomp
+    x11/library/libepoxy
+    x11/library/libxfont2
+    x11/library/libxshmfence
+    x11/library/mesa
+    x11/library/xtrans
+    x11/mkfontdir
+    x11/mkfontscale
+"
+
+#PACKAGE_XSERVER_EXTRA_CFLAGS="-I/usr/include/wurst/../"
+PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
+
+[ "${OPENINDIANA_HIPSTER_DRIVERS}" ] || OPENINDIANA_HIPSTER_DRIVERS="xf86-input-keyboard
+                                                                     xf86-input-mouse
+                                                                     xf86-video-vesa
+                                                                     xf86-video-intel"
+
+XORG_DRIVERS="${XORG_DRIVERS} ${OPENINDIANA_HIPSTER_DRIVERS}"
+XORG_EXTRA_DEPS="libxcvt"
+
+# need extra tools
+export PATH="$PATH:/usr/gnu/bin"

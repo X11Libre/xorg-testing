@@ -22,6 +22,7 @@ need to manually log on individual DUTs anymore.
 * FreeBSD 14
 * NetBSD 10
 * OpenBSD 7.5
+* Illumos: OpenIndiana Hipster
 
 ## Prerequisites
 

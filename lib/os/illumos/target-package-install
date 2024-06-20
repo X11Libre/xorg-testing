@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# call be inside chroot to install target packages
+#
+
+set -e
+
+echo "(illumos) installing packages: $@"
+
+if [ "$1" != "" ]; then
+    pkg install --no-refresh "$@"|| retval="$?"
+    if [ "$retval" != "" ] && [ "$retval" != 0 ] && [ "$retval" != 4 ]; then
+        echo "package installation failed: retval=$retval" >&2
+        exit 1
+    fi
+fi
+
+echo "(illumos) package intallation finished"

@@ -1,0 +1,7 @@
+HOST_OS_TYPE="illumos"
+HOST_JAIL_TYPE="illumos-chroot"
+HOST_CHROOT_RPOOL="rpool/chroot"
+HOST_CHROOT_DIR="/$HOST_CHROOT_RPOOL"
+HOST_PACKAGES="sudo rsync"
+
+[ "$TARGET_ID" ] || export TARGET_ID="$ILLUMOS_TARGET_ID"

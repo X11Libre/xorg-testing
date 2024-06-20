@@ -40,6 +40,10 @@ if [ ! "$HOST_OS" ]; then
             log "detected OpenBSD"
             export HOST_OS="openbsd"
         ;;
+        SunOS)
+            log "detected SunOS"
+            export HOST_OS="illumos"
+        ;;
         *)
             die "unknown uname: $(uname)"
         ;;

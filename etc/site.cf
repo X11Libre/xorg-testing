@@ -1,6 +1,10 @@
 # not set - autodetect
 # HOST_OS="freebsd"
+
+# NOTE: etc/hosts/illumos.cf overwrite this, since there it needs
+# to be in the rpool
 HOST_CHROOT_DIR="/var/chroots/xorg-testing"
+
 GIT_CLONE_ARGS="--depth 1"
 XORG_PREFIX="/usr/local/X11"
 
@@ -15,3 +19,6 @@ NETBSD_TARGET_ID="netbsd-10"
 
 # target when running on OpenBSD host
 OPENBSD_TARGET_ID="openbsd-7.5"
+
+# target when running on illumos/openindiana host
+ILLUMOS_TARGET_ID="openindiana-hipster"

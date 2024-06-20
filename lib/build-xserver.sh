@@ -25,6 +25,14 @@ log "C-Compiler: $CC"
 TARGET_CC_ARCH=$($CC -dumpmachine)
 ARCH_LIBDIR="lib/$TARGET_CC_ARCH/"
 
+# fixme: speciality for Illumos
+if [ "$(uname)" == "SunOS" ]; then
+    mkdir -p /var/run/opengl/include/ /usr/include/GL/internal
+    ln -sf ../../../../usr/include/mesa/gl.h var/run/opengl/include/gl.h
+    ln -sf ../../../../usr/include/mesa/glext.h var/run/opengl/include/glext.h
+    ln -sf ../../mesa/internal/dri_interface.h /usr/include/GL/internal/dri_interface.h
+fi
+
 # fixme: this could be os/distro specific
 export PKG_CONFIG_PATH="$XORG_PREFIX/share/pkgconfig:$XORG_PREFIX/lib/pkgconfig:$XORG_PREFIX/$ARCH_LIBDIR/pkgconfig:$XORG_PREFIX/libdata/pkgconfig:/usr/local/libdata"
 
@@ -36,6 +44,11 @@ build_package libdrm
 for i in $XORG_EXTRA_DEPS ; do
     build_package $i
 done
+
+# special hack for Illumos
+if [ "$(uname)" == "SunOS" ]; then
+    pip install strenum
+fi
 
 build_package xserver
 build_package xkeyboard-config

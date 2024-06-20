@@ -8,7 +8,21 @@ SCRIPT_ROOT_DIR="$(cd "$(dirname "$0")/../" && pwd -P)"
 
 . $SCRIPT_ROOT_DIR/lib/builder.sh
 
-TARGET_CC_ARCH=$(cc -dumpmachine)
+if [ ! "$CC" ]; then
+    if mycc=`which cc` >/dev/null ; then
+        export CC="$mycc"
+    elif mycc=`which gcc` >/dev/null ; then
+        export CC="$mycc"
+    elif mycc=`which clang` >/dev/null ; then
+        export CC="$mycc"
+    else
+        die "cant find a C compiler"
+    fi
+fi
+
+log "C-Compiler: $CC"
+
+TARGET_CC_ARCH=$($CC -dumpmachine)
 ARCH_LIBDIR="lib/$TARGET_CC_ARCH/"
 
 # fixme: this could be os/distro specific

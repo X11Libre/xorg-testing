@@ -1,6 +1,5 @@
 HOST_OS_TYPE="netbsd"
 HOST_JAIL_TYPE="sandboxctl"
-HOST_JAILS_PREFIX="/usr/local/jails"
 HOST_PACKAGES="sudo rsync sandboxctl"
 
 [ "$TARGET_ID" ] || export TARGET_ID="$NETBSD_TARGET_ID"

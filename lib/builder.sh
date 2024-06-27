@@ -30,6 +30,13 @@ get_pkg_args() {
     echo "${!id}"
 }
 
+get_pkg_cflags() {
+    local id="$1"
+    id="${id^^}"
+    id="PACKAGE_${id//-/_}_EXTRA_CFLAGS"
+    echo "${!id}"
+}
+
 clone_work_repo() {
     local id="$1"
     local repo="$(get_source_repo "$id")"
@@ -106,7 +113,7 @@ build_package() {
     (
         echo "building by meson: $id"
         cd $workdir/_build
-        meson setup -Dprefix="$XORG_PREFIX" $args
+        CFLAGS="$CFLAGS $(get_pkg_cflags $id)" meson setup -Dprefix="$XORG_PREFIX" $args
         meson compile
         meson install
     )

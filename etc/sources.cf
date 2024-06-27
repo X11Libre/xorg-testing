@@ -57,3 +57,7 @@ SOURCE_XORG_UTIL_MACROS_REF="master"
 # upstream
 SOURCE_XORG_FONT_UTIL_REPO="https://gitlab.freedesktop.org/xorg/font/util.git"
 SOURCE_XORG_FONT_UTIL_REF="master"
+
+# upstream
+SOURCE_LIBXCVT_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcvt.git"
+SOURCE_LIBXCVT_REF="libxcvt-0.1.0"

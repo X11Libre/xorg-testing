@@ -4,7 +4,8 @@ TARGET_PACKAGES="build-essential git meson autoconf xorg-dev xutils-dev
                  xfonts-utils fontconfig libtool libevdev-dev libmtdev-dev
                  libinput-dev libx11-xcb-dev libxcb-dri2-0-dev libxcb-util-dev
                  valgrind libxshmfence-dev libxcb-dri3-dev libxv-dev
-                 libspice-protocol-dev"
+                 libspice-protocol-dev libxcb-shape0-dev libxcb-icccm4-dev
+                 libxcb-xkb-dev"
 TARGET_WORKDIR="/srv/xorg-playground"
 TARGET_RELEASE="bookworm"
 

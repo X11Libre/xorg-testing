@@ -17,6 +17,7 @@ PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true"
     xf86-video-intel
     xf86-video-qxl
     xf86-video-vesa
+    xf86-video-vmware
 "
 
 XORG_DRIVERS="${XORG_DRIVERS} ${DEBIAN_BOOKWORM_DRIVERS}"

@@ -10,11 +10,13 @@ TARGET_WORKDIR="/srv/xorg-playground"
 TARGET_RELEASE="bookworm"
 
 PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true"
+PACKAGE_LIBDRM_BUILD_ARGS="-Domap=enabled"
 
 [ "${DEBIAN_BOOKWORM_DRIVERS}" ] || DEBIAN_BOOKWORM_DRIVERS="
     xf86-input-evdev
     xf86-input-libinput
     xf86-video-intel
+    xf86-video-omap
     xf86-video-qxl
     xf86-video-vesa
     xf86-video-vmware

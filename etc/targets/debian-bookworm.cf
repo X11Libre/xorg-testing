@@ -11,6 +11,12 @@ TARGET_RELEASE="bookworm"
 
 PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true"
 
-[ "${DEBIAN_BOOKWORM_DRIVERS}" ] || DEBIAN_BOOKWORM_DRIVERS="xf86-input-evdev xf86-input-libinput xf86-video-vesa xf86-video-intel"
+[ "${DEBIAN_BOOKWORM_DRIVERS}" ] || DEBIAN_BOOKWORM_DRIVERS="
+    xf86-input-evdev
+    xf86-input-libinput
+    xf86-video-intel
+    xf86-video-qxl
+    xf86-video-vesa
+"
 
 XORG_DRIVERS="${XORG_DRIVERS} ${DEBIAN_BOOKWORM_DRIVERS}"

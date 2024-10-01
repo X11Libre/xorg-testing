@@ -26,13 +26,49 @@ SOURCE_XF86_INPUT_MOUSE_REF="master"
 SOURCE_XF86_INPUT_KEYBOARD_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard.git"
 SOURCE_XF86_INPUT_KEYBOARD_REF="master"
 
+# incubator branch
+SOURCE_XF86_VIDEO_AMDGPU_REPO="https://gitlab.freedesktop.org/metux/xf86-video-amdgpu.git"
+SOURCE_XF86_VIDEO_AMDGPU_REF="incubate"
+
+# incubator branch
+SOURCE_XF86_VIDEO_ARMSOC_REPO="https://gitlab.freedesktop.org/metux/xf86-video-armsoc.git"
+SOURCE_XF86_VIDEO_ARMSOC_REF="incubate"
+
+# incubator branch
+SOURCE_XF86_VIDEO_ATI_REPO="https://gitlab.freedesktop.org/metux/xf86-video-ati.git"
+SOURCE_XF86_VIDEO_ATI_REF="incubate"
+
+# incubator branch
+SOURCE_XF86_VIDEO_FREEDRENO_REPO="https://gitlab.freedesktop.org/metux/xf86-video-freedreno.git"
+SOURCE_XF86_VIDEO_FREEDRENO_REF="incubate"
+
 # needs some fixes, upstream version won't build yet
 SOURCE_XF86_VIDEO_INTEL_REPO="https://gitlab.freedesktop.org/metux/xf86-video-intel.git"
 SOURCE_XF86_VIDEO_INTEL_REF="incubate"
 
+# incubator branch
+SOURCE_XF86_VIDEO_OMAP_REPO="https://gitlab.freedesktop.org/metux/xf86-video-omap.git"
+SOURCE_XF86_VIDEO_OMAP_REF="incubate"
+
+# incubator branch
+SOURCE_XF86_VIDEO_NOUVEAU_REPO="https://gitlab.freedesktop.org/metux/xf86-video-nouveau.git"
+SOURCE_XF86_VIDEO_NOUVEAU_REF="incubate"
+
+# incubator branch
+SOURCE_XF86_VIDEO_QXL_REPO="https://gitlab.freedesktop.org/metux/xf86-video-qxl.git"
+SOURCE_XF86_VIDEO_QXL_REF="incubate"
+
+# incubator branch
+SOURCE_XF86_VIDEO_R128_REPO="https://gitlab.freedesktop.org/metux/xf86-video-r128.git"
+SOURCE_XF86_VIDEO_R128_REF="incubate"
+
 # upstream
 SOURCE_XF86_VIDEO_VESA_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vesa.git"
 SOURCE_XF86_VIDEO_VESA_REF="master"
+
+# incubator branch
+SOURCE_XF86_VIDEO_VMWARE_REPO="https://gitlab.freedesktop.org/metux/xf86-video-vmware.git"
+SOURCE_XF86_VIDEO_VMWARE_REF="incubate"
 
 # testing branch
 SOURCE_XF86_VIDEO_WSFB_REPO="https://gitlab.freedesktop.org/metux/xf86-video-wsfb.git"

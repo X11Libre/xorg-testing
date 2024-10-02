@@ -19,6 +19,7 @@ PACKAGE_LIBDRM_BUILD_ARGS="-Domap=enabled"
     xf86-video-armsoc
     xf86-video-ati
     xf86-video-intel
+    xf86-video-nouveau
     xf86-video-omap
     xf86-video-qxl
     xf86-video-r128

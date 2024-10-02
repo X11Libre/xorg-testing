@@ -101,9 +101,11 @@ build_package() {
     rm -Rf $workdir/_build
     mkdir -p $workdir/_build
 
+    log "package $id build args: $args"
+
     if [ -f $workdir/autogen.sh ]; then
     (
-        echo "building by autotools: $id"
+        log "building by autotools: $id"
         cd $workdir/_build
         ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" ../autogen.sh --prefix="$XORG_PREFIX" $args
         make
@@ -111,7 +113,7 @@ build_package() {
     )
     else
     (
-        echo "building by meson: $id"
+        log "building by meson: $id"
         cd $workdir/_build
         CFLAGS="$CFLAGS $(get_pkg_cflags $id)" meson setup -Dprefix="$XORG_PREFIX" $args
         meson compile

@@ -10,7 +10,9 @@ TARGET_WORKDIR="/srv/xorg-playground"
 TARGET_RELEASE="bookworm"
 
 PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true"
-PACKAGE_LIBDRM_BUILD_ARGS="-Domap=enabled"
+PACKAGE_LIBDRM_BUILD_ARGS="-Domap=enabled -Dfreedreno=enabled"
+
+# xf86-video-freedreno is currently broken
 
 [ "${DEBIAN_BOOKWORM_DRIVERS}" ] || DEBIAN_BOOKWORM_DRIVERS="
     xf86-input-evdev

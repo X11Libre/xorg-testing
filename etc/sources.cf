@@ -28,7 +28,7 @@ SOURCE_XF86_INPUT_KEYBOARD_REF="master"
 
 # needs some fixes, upstream version won't build yet
 SOURCE_XF86_VIDEO_INTEL_REPO="https://gitlab.freedesktop.org/metux/xf86-video-intel.git"
-SOURCE_XF86_VIDEO_INTEL_REF="submit/misc-fixes"
+SOURCE_XF86_VIDEO_INTEL_REF="incubate"
 
 # upstream
 SOURCE_XF86_VIDEO_VESA_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vesa.git"

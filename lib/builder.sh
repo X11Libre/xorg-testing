@@ -49,7 +49,7 @@ clone_work_repo() {
     fi
 
     mark_undone "$1"
-    git clone $repo $workdir --branch="$ref" $GIT_CLONE_ARGS
+    git clone --recurse-submodules $repo $workdir --branch="$ref" $GIT_CLONE_ARGS
 }
 
 clone_work_repos() {

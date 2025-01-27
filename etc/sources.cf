@@ -1,30 +1,15 @@
+. $SCRIPT_ROOT_DIR/etc/sources-upstream.cf
+
+# needs master, until release is made
+# SOURCE_XORGPROTO_REF="master"
+
 # testing branch
 SOURCE_XSERVER_REPO="https://gitlab.freedesktop.org/metux/xserver.git"
 SOURCE_XSERVER_REF="incubate" # for collected open MRs use branch "incubate"
 
 # needs some fixes
-SOURCE_XORGPROTO_REPO="https://gitlab.freedesktop.org/metux/xorgproto.git"
-SOURCE_XORGPROTO_REF="incubate"
-
-# needs some fixes
 SOURCE_LIBDRM_REPO="https://gitlab.freedesktop.org/metux/drm.git"
 SOURCE_LIBDRM_REF="incubate"
-
-# upstream
-SOURCE_XF86_INPUT_EVDEV_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-evdev.git"
-SOURCE_XF86_INPUT_EVDEV_REF="master"
-
-# upstream
-SOURCE_XF86_INPUT_LIBINPUT_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-libinput.git"
-SOURCE_XF86_INPUT_LIBINPUT_REF="master"
-
-# upstream
-SOURCE_XF86_INPUT_MOUSE_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-mouse.git"
-SOURCE_XF86_INPUT_MOUSE_REF="master"
-
-# upstream
-SOURCE_XF86_INPUT_KEYBOARD_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-keyboard.git"
-SOURCE_XF86_INPUT_KEYBOARD_REF="master"
 
 # incubator branch
 SOURCE_XF86_VIDEO_AMDGPU_REPO="https://gitlab.freedesktop.org/metux/xf86-video-amdgpu.git"
@@ -62,10 +47,6 @@ SOURCE_XF86_VIDEO_QXL_REF="incubate"
 SOURCE_XF86_VIDEO_R128_REPO="https://gitlab.freedesktop.org/metux/xf86-video-r128.git"
 SOURCE_XF86_VIDEO_R128_REF="incubate"
 
-# upstream
-SOURCE_XF86_VIDEO_VESA_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-video-vesa.git"
-SOURCE_XF86_VIDEO_VESA_REF="master"
-
 # incubator branch
 SOURCE_XF86_VIDEO_VMWARE_REPO="https://gitlab.freedesktop.org/metux/xf86-video-vmware.git"
 SOURCE_XF86_VIDEO_VMWARE_REF="incubate"
@@ -73,27 +54,3 @@ SOURCE_XF86_VIDEO_VMWARE_REF="incubate"
 # testing branch
 SOURCE_XF86_VIDEO_WSFB_REPO="https://gitlab.freedesktop.org/metux/xf86-video-wsfb.git"
 SOURCE_XF86_VIDEO_WSFB_REF="incubate"
-
-# upstream
-SOURCE_XKEYBOARD_CONFIG_REPO="https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git"
-SOURCE_XKEYBOARD_CONFIG_REF="master"
-
-# upstream
-SOURCE_XKBCOMP_REPO="https://gitlab.freedesktop.org/xorg/app/xkbcomp.git"
-SOURCE_XKBCOMP_REF="master"
-
-# upstream
-SOURCE_FONT_XFREE86_TYPE_1_REPO="https://gitlab.freedesktop.org/xorg/font/xfree86-type1.git"
-SOURCE_FONT_XFREE86_TYPE_1_REF="master"
-
-# upstream
-SOURCE_XORG_UTIL_MACROS_REPO="https://gitlab.freedesktop.org/xorg/util/macros.git"
-SOURCE_XORG_UTIL_MACROS_REF="master"
-
-# upstream
-SOURCE_XORG_FONT_UTIL_REPO="https://gitlab.freedesktop.org/xorg/font/util.git"
-SOURCE_XORG_FONT_UTIL_REF="master"
-
-# upstream
-SOURCE_LIBXCVT_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcvt.git"
-SOURCE_LIBXCVT_REF="libxcvt-0.1.0"

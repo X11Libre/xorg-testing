@@ -1,5 +1,5 @@
-HOST_SCHROOT_PACKAGES="mmdebstrap schroot"
-HOST_OS_TYPE="debian"
 HOST_JAIL_TYPE="schroot"
+HOST_OS_TYPE="debian"
+HOST_PACKAGES="mmdebstrap schroot"
 
 [ "$TARGET_ID" ] || export TARGET_ID="$DEBIAN_TARGET_ID"

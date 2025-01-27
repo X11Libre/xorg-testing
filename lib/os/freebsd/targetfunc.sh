@@ -22,5 +22,5 @@ target_bootstrap_chroot() {
     if [ -f /etc/localtime ]; then cp /etc/localtime   "$chroot_dir/etc/" ; fi
 
     # fixme: put this into jail, so we're independent of guest OS
-    freebsd-update -b "$chroot_dir" fetch install
+    freebsd-update -y -b "$chroot_dir" fetch install
 }

@@ -1,6 +1,6 @@
 TARGET_OS="freebsd"
 TARGET_WORKDIR="/srv/xorg-playground"
-TARGET_RELEASE="14.0"
+TARGET_RELEASE="14.2"
 TARGET_ARCH="amd64"
 TARGET_PACKAGES="
     bash git gcc pkgconf autoconf automake libtool xorg-macros xorgproto meson
@@ -8,8 +8,8 @@ TARGET_PACKAGES="
     libpciaccess font-util libepoll-shim libdrm mesa-libs libglu mesa-dri
     libepoxy nettle xkbcomp libXvMC xcb-util valgrind libXcursor libXScrnSaver
     libXinerama libXtst evdev-proto libevdev libmtdev libinput spice-protocol
-    libspice-server libX11 libxshmfence python3 py39-StrEnum fontconfig
-    mkfontscale
+    libspice-server libX11 libxshmfence python3 py311-StrEnum fontconfig
+    mkfontscale gmake
 "
 
 PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"
@@ -17,3 +17,5 @@ PACKAGE_XSERVER_BUILD_ARGS="-Ddri3=true -Dudev=false -Dudev_kms=false"
 [ "${FREEBSD_14_DRIVERS}" ] || FREEBSD_14_DRIVERS="xf86-input-keyboard xf86-input-mouse xf86-input-evdev xf86-input-libinput xf86-video-vesa xf86-video-intel"
 
 XORG_DRIVERS="${XORG_DRIVERS} ${FREEBSD_14_DRIVERS}"
+
+export TARGET_MAKE=gmake

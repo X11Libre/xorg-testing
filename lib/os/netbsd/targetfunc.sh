@@ -35,7 +35,7 @@ __EOF__
     log "deploy ca-certificates"
     if [ -f /etc/resolv.conf ]; then cp /etc/resolv.conf "$chroot_dir/etc/" ; fi
     mkdir -p $chroot_dir/etc/openssl/certs
-    cp /etc/openssl/certs/* $chroot_dir/etc/openssl/certs
+    cp /etc/openssl/certs/* $chroot_dir/etc/openssl/certs || true
 
     sudo sandboxctl -c "${sandbox_name}" run tee /etc/pkg_install.conf >/dev/null << __EOF__
 PKG_PATH=${pkgsrc_mirror}

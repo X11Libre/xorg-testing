@@ -83,3 +83,12 @@ SOURCE_XORG_FONT_UTIL_REF="font-util-1.4.1"
 
 SOURCE_LIBXCVT_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcvt.git"
 SOURCE_LIBXCVT_REF="libxcvt-0.1.0"
+
+SOURCE_LIBXCB_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcb.git"
+SOURCE_LIBXCB_REF="libxcb-1.17.0"
+
+SOURCE_XCB_PROTO_REPO="https://gitlab.freedesktop.org/xorg/proto/xcbproto"
+SOURCE_XCB_PROTO_REF="xcb-proto-1.17.0"
+
+SOURCE_LIBXCB_WM_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcb-wm.git"
+SOURCE_LIBXCB_WM_REF="xcb-util-wm-0.4.2"

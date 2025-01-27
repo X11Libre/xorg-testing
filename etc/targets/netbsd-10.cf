@@ -6,7 +6,7 @@ TARGET_PACKAGES="
     bash git pkgconf autoconf automake libtool xorgproto meson pixman xtrans
     libxkbfile libxcvt libpciaccess font-util libepoll-shim libepoxy nettle
     xkbcomp xcb-util libXcursor libXScrnSaver spice-protocol fontconfig
-    mkfontscale python311
+    mkfontscale python311 gmake
 "
 TARGET_SETS="base comp debug etc misc tests text xbase xcomp xdebug xetc xfont xserver"
 
@@ -20,3 +20,5 @@ PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
                                                  xf86-video-wsfb"
 
 XORG_DRIVERS="${XORG_DRIVERS} ${NETBSD_10_DRIVERS}"
+
+export TARGET_MAKE=gmake

@@ -101,15 +101,19 @@ build_package() {
     rm -Rf $workdir/_build
     mkdir -p $workdir/_build
 
+    if [ ! "$TARGET_MAKE" ]; then
+        export TARGET_MAKE=make
+    fi
+
     log "package $id build args: $args"
 
     if [ -f $workdir/autogen.sh ]; then
     (
         log "building by autotools: $id"
         cd $workdir/_build
-        ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" ../autogen.sh --prefix="$XORG_PREFIX" $args
-        make
-        make install
+        ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" $workdir/autogen.sh --prefix="$XORG_PREFIX" $args
+        $TARGET_MAKE
+        $TARGET_MAKE install
     )
     else
     (

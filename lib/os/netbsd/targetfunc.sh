@@ -2,6 +2,8 @@
 target_bootstrap_chroot() {
     needvar TARGET_OS TARGET_RELEASE TARGET_ARCH TARGET_SETS
 
+    export PATH="$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/pkg/bin:/usr/pkg/sbin"
+
     echo "bootstrapping NetBSD"
     [ "$HOST_OS_TYPE" == "netbsd" ] || die "NetBSD jails are only supported on NetBSD hosts"
 

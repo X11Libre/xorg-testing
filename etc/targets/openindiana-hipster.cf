@@ -3,8 +3,9 @@ TARGET_WORKDIR="/srv/xorg-playground"
 TARGET_RELEASE="hipster"
 TARGET_ARCH="amd64"
 TARGET_PACKAGES="
-    meson gcc-13
+    gcc-13
     developer/build/autoconf
+    developer/build/meson
     developer/build/libtool
     developer/build/automake
     developer/build/gnu-make

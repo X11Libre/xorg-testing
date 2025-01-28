@@ -31,6 +31,7 @@ if [ "$(uname)" == "SunOS" ]; then
     ln -sf ../../../../usr/include/mesa/gl.h var/run/opengl/include/gl.h
     ln -sf ../../../../usr/include/mesa/glext.h var/run/opengl/include/glext.h
     ln -sf ../../mesa/internal/dri_interface.h /usr/include/GL/internal/dri_interface.h
+    build_ninja
 fi
 
 # fixme: this could be os/distro specific

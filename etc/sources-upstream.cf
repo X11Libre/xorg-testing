@@ -95,3 +95,6 @@ SOURCE_LIBXCB_WM_REF="xcb-util-wm-0.4.2"
 
 SOURCE_LIBXCB_UTIL_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcb-util.git"
 SOURCE_LIBXCB_UTIL_REF="xcb-util-0.4.1-gitlab"
+
+SOURCE_NINJA_REPO="https://github.com/ninja-build/ninja.git"
+SOURCE_NINJA_REF="release"

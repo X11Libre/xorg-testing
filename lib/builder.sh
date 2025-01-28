@@ -88,6 +88,28 @@ if_done() {
     fi
 }
 
+## special magic for ninja
+build_ninja() {
+    local id="ninja"
+    local workdir=$(get_workdir "$id")
+    local args=$(get_pkg_args "$id")
+
+    clone_work_repo "$id"
+
+    if_done "$id" && return 0
+
+    (
+        cd $workdir
+        ./configure.py --bootstrap
+        mkdir -p /usr/bin
+        cp ninja /usr/bin
+        chmod ugo+x /usr/bin/ninja
+    )
+
+    log "installed ninja"
+    mark_done "$id"
+}
+
 build_package() {
     local id="$1"
     local workdir=$(get_workdir "$id")

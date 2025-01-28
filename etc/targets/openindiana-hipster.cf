@@ -12,6 +12,7 @@ TARGET_PACKAGES="
     developer/build/pkgconf
     developer/build/pkg-config
     developer/build/cmake
+    developer/lexer/re2c
     developer/versioning/git
     file/gnu-coreutils
     library/python/pip-39
@@ -31,7 +32,6 @@ TARGET_PACKAGES="
     x11/mkfontscale
 "
 
-#PACKAGE_XSERVER_EXTRA_CFLAGS="-I/usr/include/wurst/../"
 PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
 
 [ "${OPENINDIANA_HIPSTER_DRIVERS}" ] || OPENINDIANA_HIPSTER_DRIVERS="xf86-input-keyboard

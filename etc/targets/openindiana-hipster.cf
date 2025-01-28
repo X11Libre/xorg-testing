@@ -11,6 +11,7 @@ TARGET_PACKAGES="
     developer/build/gnu-make
     developer/build/pkgconf
     developer/build/pkg-config
+    developer/build/cmake
     developer/versioning/git
     file/gnu-coreutils
     library/python/pip-39

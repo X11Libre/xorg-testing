@@ -25,3 +25,8 @@ host_fetch_tarball() {
         echo "tarball already present: $fn"
     fi
 }
+
+sudo() {
+    echo "Illumos fake sudo: $@"
+    eval $@
+}

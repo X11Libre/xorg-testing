@@ -43,6 +43,7 @@ build_package libdrm
 build_package xcb-proto
 build_package libxcb
 build_package libxcb-wm
+build_package libxcb-util
 
 for i in $XORG_EXTRA_DEPS ; do
     build_package $i

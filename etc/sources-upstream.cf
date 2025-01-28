@@ -92,3 +92,6 @@ SOURCE_XCB_PROTO_REF="xcb-proto-1.17.0"
 
 SOURCE_LIBXCB_WM_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcb-wm.git"
 SOURCE_LIBXCB_WM_REF="xcb-util-wm-0.4.2"
+
+SOURCE_LIBXCB_UTIL_REPO="https://gitlab.freedesktop.org/xorg/lib/libxcb-util.git"
+SOURCE_LIBXCB_UTIL_REF="xcb-util-0.4.1-gitlab"

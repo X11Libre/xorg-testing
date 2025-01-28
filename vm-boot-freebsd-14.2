@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+SCRIPT_ROOT_DIR="$(cd "$(dirname "$0")" && pwd -P)"
+
+. $SCRIPT_ROOT_DIR/etc/vm/freebsd-14.2-amd64.cf
+. $SCRIPT_ROOT_DIR/lib/vm.sh
+
+boot_vm_builder

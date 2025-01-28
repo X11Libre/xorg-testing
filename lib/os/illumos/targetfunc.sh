@@ -9,9 +9,7 @@ target_bootstrap_chroot() {
     local chroot_name="$(get_builder_chroot_name)"
     local chroot_rpool="$HOST_CHROOT_RPOOL/$chroot_name"
 
-    mkdir -p $(dirname "$chroot_dir")
-    log "zfs create $chroot_rpool"
-    zfs create $chroot_rpool || true
+    zfs create -p -P $chroot_rpool || true
 
     # FIXME: should support bootstrapping other releases, too
     log "initialize chroot"

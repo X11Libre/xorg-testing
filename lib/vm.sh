@@ -72,14 +72,14 @@ unpack_image() {
     log "finished image decompression"
 }
 
-boot_vm_builder() {
-    unpack_image
-
-    local qemu_args_efi=""
+vm_opt_bios() {
     if [ "${OS_EFI}" ]; then
-        qemu_args_efi="-bios /usr/share/ovmf/OVMF.fd"
+        echo -n "-bios /usr/share/ovmf/OVMF.fd"
     fi
+}
 
+vm_start() {
+    unpack_image
     qemu-system-$VM_QEMU_ARCH \
         -name "$VM_NAME" \
         -smp "$VM_CORES" \
@@ -90,8 +90,16 @@ boot_vm_builder() {
         -cpu max \
         -k de_de \
         -nic user,model=virtio-net-pci,hostfwd=tcp::${VM_SSH_PORT}-:22 \
-        -nographic -serial mon:stdio \
-        $qemu_args_efi
+        `vm_opt_bios` \
+        "$@"
+}
+
+boot_vm_console() {
+    vm_start -nographic -serial mon:stdio "$@"
+}
+
+boot_vm_graphics() {
+    vm_start -vga std "$@"
 }
 
 vm_exec() {

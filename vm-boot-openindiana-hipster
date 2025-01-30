@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-SCRIPT_ROOT_DIR="$(cd "$(dirname "$0")" && pwd -P)"
-
-. $SCRIPT_ROOT_DIR/etc/vm/openindiana-hipster-amd64.cf
-. $SCRIPT_ROOT_DIR/lib/vm.sh
-
-boot_vm_console

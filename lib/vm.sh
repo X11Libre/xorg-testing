@@ -78,8 +78,33 @@ vm_opt_bios() {
     fi
 }
 
+vm_cloudinit() {
+    if [ "$VM_CLOUDINIT" ]; then
+        needvar OS_TYPE
+        needvar OS_RELEASE
+        needvar OS_ARCH
+        log "using cloudinit: $VM_CLOUDINIT"
+        ( cd $SCRIPT_ROOT_DIR/etc/vm/cloudinit/$VM_CLOUDINIT && \
+            genisoimage \
+                -output $SCRIPT_ROOT_DIR/vm/images/${OS_TYPE}/${OS_TYPE}-${OS_RELEASE}-${OS_ARCH}-cloudinit.iso \
+                -volid cidata -rational-rock -joliet \
+                -input-charset utf-8 \
+                user-data meta-data network-config
+        )
+    else
+        log "no cloudinit template selected. skipping"
+    fi
+}
+
+vm_opt_cloudinit() {
+    if [ "$VM_CLOUDINIT" ]; then
+        echo "-drive file=$SCRIPT_ROOT_DIR/vm/images/${OS_TYPE}/${OS_TYPE}-${OS_RELEASE}-${OS_ARCH}-cloudinit.iso,index=1,media=cdrom"
+    fi
+}
+
 vm_start() {
     unpack_image
+    vm_cloudinit
     qemu-system-$VM_QEMU_ARCH \
         -name "$VM_NAME" \
         -smp "$VM_CORES" \
@@ -90,7 +115,7 @@ vm_start() {
         -cpu max \
         -k de_de \
         -nic user,model=virtio-net-pci,hostfwd=tcp::${VM_SSH_PORT}-:22 \
-        `vm_opt_bios` \
+        `vm_opt_bios` `vm_opt_cloudinit` \
         "$@"
 }
 

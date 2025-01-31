@@ -102,3 +102,23 @@ SOURCE_NINJA_REF="release"
 SOURCE_XF86_INPUT_WS_REPO="https://github.com/NetBSD/xsrc.git"
 SOURCE_XF86_INPUT_WS_REF="trunk"
 SOURCE_XF86_INPUT_WS_SUBTREE="external/mit/xf86-input-ws/dist"
+
+# no makefile ?!
+SOURCE_XF86_VIDEO_IGS_REPO="https://github.com/NetBSD/xsrc.git"
+SOURCE_XF86_VIDEO_IGS_REF="trunk"
+SOURCE_XF86_VIDEO_IGS_SUBTREE="external/mit/xf86-video-igs/dist"
+
+# no makefile ?!
+SOURCE_XF86_VIDEO_MGX_REPO="https://github.com/NetBSD/xsrc.git"
+SOURCE_XF86_VIDEO_MGX_REF="trunk"
+SOURCE_XF86_VIDEO_MGX_SUBTREE="external/mit/xf86-video-mgx/dist"
+
+# no makefile ?!
+SOURCE_XF86_VIDEO_NGLE_REPO="https://github.com/NetBSD/xsrc.git"
+SOURCE_XF86_VIDEO_NGLE_REF="trunk"
+SOURCE_XF86_VIDEO_NGLE_SUBTREE="external/mit/xf86-video-ngle/dist"
+
+# no makefile ?!
+SOURCE_XF86_VIDEO_PNOZZ_REPO="https://github.com/NetBSD/xsrc.git"
+SOURCE_XF86_VIDEO_PNOZZ_REF="trunk"
+SOURCE_XF86_VIDEO_PNOZZ_SUBTREE="external/mit/xf86-video-ngle/pnozz"

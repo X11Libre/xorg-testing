@@ -15,6 +15,7 @@ PACKAGE_LIBDRM_BUILD_ARGS="-Dnouveau=disabled"
 
 [ "${NETBSD_10_DRIVERS}" ] || NETBSD_10_DRIVERS="xf86-input-keyboard
                                                  xf86-input-mouse
+                                                 xf86-input-ws
                                                  xf86-video-vesa
                                                  xf86-video-intel
                                                  xf86-video-wsfb"

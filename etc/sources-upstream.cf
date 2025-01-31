@@ -98,3 +98,7 @@ SOURCE_LIBXCB_UTIL_REF="xcb-util-0.4.1-gitlab"
 
 SOURCE_NINJA_REPO="https://github.com/ninja-build/ninja.git"
 SOURCE_NINJA_REF="release"
+
+SOURCE_XF86_INPUT_WS_REPO="https://github.com/NetBSD/xsrc.git"
+SOURCE_XF86_INPUT_WS_REF="trunk"
+SOURCE_XF86_INPUT_WS_SUBTREE="external/mit/xf86-input-ws/dist"

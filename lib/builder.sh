@@ -1,10 +1,19 @@
 . $SCRIPT_ROOT_DIR/lib/base.sh
 . $SCRIPT_ROOT_DIR/etc/sources.cf
 
+# get the cloned git working directory path
 get_workdir() {
     local id="$1"
     needvar TARGET_WORKDIR
     echo -n "$TARGET_WORKDIR/$id.git"
+}
+
+# get the actual source tree path (possibly subdir of get_workdir())
+get_work_tree() {
+    local id="$1"
+    local wd=`get_workdir "$id"`
+    local subdir=`cf_source_subtree $id`
+    echo -n "${wd}/${subdir}"
 }
 
 get_source_repo() {
@@ -20,6 +29,13 @@ get_source_ref() {
     local id="$1"
     id="${id^^}"
     id="SOURCE_${id//-/_}_REF"
+    echo "${!id}"
+}
+
+cf_source_subtree() {
+    local id="$1"
+    id="${id^^}"
+    id="SOURCE_${id//-/_}_SUBTREE"
     echo "${!id}"
 }
 
@@ -91,7 +107,7 @@ if_done() {
 ## special magic for ninja
 build_ninja() {
     local id="ninja"
-    local workdir=$(get_workdir "$id")
+    local workdir=$(get_work_tree "$id")
     local args=$(get_pkg_args "$id")
 
     clone_work_repo "$id"
@@ -112,7 +128,7 @@ build_ninja() {
 
 build_package() {
     local id="$1"
-    local workdir=$(get_workdir "$id")
+    local workdir=$(get_work_tree "$id")
     local args=$(get_pkg_args "$id")
     shift
 
@@ -128,6 +144,7 @@ build_package() {
     fi
 
     log "package $id build args: $args"
+    log "workdir=$workdir"
 
     if [ -f $workdir/autogen.sh ]; then
     (

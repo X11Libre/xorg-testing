@@ -4,23 +4,16 @@
 #  1) https://dlc.openindiana.org/isos/openindiana/20240426/OI-hipster-cloudimage.img.zstd"
 #  2) resize to 30G (truncate --size=30G <filename>)
 #  3) convert it to qcow2: qemu-img convert -f raw -O qcow2 OI-hipster-cloudimage.img hipster-amd64.qcow2
-#  3) boot and initial setup:
+#  4) boot and initial setup:
 #    1) enable vioif0: `echo "plumb" > /etc/hostname.vioif0`
 #    2) enabled dhcp: `touch /etc/dhcp.vioif0`
 #    3) edit /etc/ssh/sshd_config to enable root w/ passwd and allow empty passwords
 #       sed -i /etc/ssh/sshd_config -e 's~PermitRootLogin no~PermitRootLogin yes~'
 #       sed -i /etc/ssh/sshd_config -e 's~PermitEmptyPasswords no~PermitEmptyPasswords yes~'
 #       `svcadm restart ssh`
+#       sed -i "s/ListenAddress ::/#ListenAddress ::/g" /etc/ssh/sshd_config
+#    4) run `pkg update`
 #  5) poweroff and pack the image
-
-#
-# Uninstalled:
-# pkg uninstall library/audio/gstreamer1 library/audio/gstreamer1/plugin/base library/audio/pulseaudio library/desktop/libvisual/plugins audio/mpg123 media/cdrtools library/desktop/libvisual library/libsndfile audio/lame
-# pkg uninstall library/audio/sdl-sound library/sdl library/sdl2 library/audio/openal
-# pkg uninstall system/network/avahi
-# pkg uninstall pkg uninstall system/library/libfcoe system/storage/fibre-channel/port-utility
-# pkg uninstall system/library/storage/fibre-channel/hbaapi service/storage/fibre-channel/fc-fabric system/storage/luxadm
-# pkg uninstall library/opus system/library/orc
 
 OS_TYPE="openindiana"
 OS_RELEASE="hipster"

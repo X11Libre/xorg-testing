@@ -149,6 +149,7 @@ build_package() {
     if [ -f $workdir/autogen.sh ]; then
     (
         log "building by autotools: $id"
+        chmod +x $workdir/autogen.sh
         cd $workdir/_build
         ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" $workdir/autogen.sh --prefix="$XORG_PREFIX" $args
         $TARGET_MAKE

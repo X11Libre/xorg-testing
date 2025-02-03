@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+if [ ! "$VM_SSH_PORT" ]; then
+    echo "$0: missing VM_SSH_PORT"
+fi
+
+VM_USER=root
+
+ssh -o "StrictHostKeyChecking=no" "$VM_USER@$VM_HOST" -p "$VM_SSH_PORT" "$@"

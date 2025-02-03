@@ -1,0 +1,24 @@
+name: build all platforms
+run-name: ${{ github.actor }} is running build on all platforms
+on:
+    push:
+    workflow_dispatch:
+        inputs:
+            extra_args:
+                description: extra arguments
+                type: string
+jobs:
+    vm-build:
+        strategy:
+            matrix:
+                node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, vm-openindiana-hipster-amd64]
+        runs-on: ${{ matrix.node }}
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v4
+            - name: accept VMs host key
+              run: /vm_exec uname -a
+            - name: copy over ourself into VM
+              run: /vm_copy_to /xorg-testing etc lib build-*
+            - name: execute in VM
+              run: /vm_exec "cd /xorg-testing && ./build-testing-jail"

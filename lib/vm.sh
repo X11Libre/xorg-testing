@@ -137,6 +137,19 @@ boot_vm_graphics() {
     vm_start -vga std "$@"
 }
 
+boot_and_wait_for_vm() {
+    if [ ! -f `vm_pidfile` ]; then
+        log "Need to start VM"
+        boot_vm_daemon
+    else
+        log "VM already booted"
+    fi
+
+    while ! nc -z localhost $VM_SSH_PORT ; do
+        sleep 0.1 # wait for 1/10 of the second before check again
+    done
+}
+
 vm_exec() {
     ssh -p "$VM_SSH_PORT" root@localhost "$@"
 }

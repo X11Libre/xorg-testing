@@ -3,3 +3,4 @@ Prerequisites:
     * access token for your org:
       eg. user token w/ admin with admin permissions on the org
     * write it into ~/.github-token-xlibre
+    * allow public repos in your org's default runner group

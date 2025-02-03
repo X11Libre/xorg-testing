@@ -13,6 +13,3 @@ bn="${bn/vm-buildjob-/}"
 
 boot_and_wait_for_vm
 vm_build_testing_jail
-
-#needvar VM_SSH_PORT
-# ssh root@localhost -p $VM_SSH_PORT

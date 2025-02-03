@@ -5,7 +5,7 @@ jobs:
   Explore-GitHub-Actions:
     strategy:
       matrix:
-        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64]
+        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, openindiana-hipster-amd64]
     runs-on: ${{ matrix.node }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -24,5 +24,5 @@ jobs:
       - name: calling into VM 2
         run: /vm_exec ls -la /
       - name: copy over ourself
-        run: ls -la
+        run: /vm_copy_to /xorg-testing etc lib build-*
       - run: echo "🍏 This job's status is ${{ job.status }}."

@@ -13,7 +13,8 @@ RUN apt-get update -y && \
         ca-certificates \
         curl \
         liblttng-ust1 \
-        libicu72
+        libicu72 \
+        ssh
 
 RUN curl -o /tmp/${RUNNER_TARBALL} \
     -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/${RUNNER_TARBALL}
@@ -27,6 +28,7 @@ RUN cd ${RUNNER_HOME} && ./bin/installdependencies.sh
 RUN chown -R ${RUNNER_USER}:${RUNNER_USER} ${RUNNER_HOME}
 
 ADD start.sh /start.sh
+ADD vm_exec /vm_exec
 ENTRYPOINT [ "/start.sh" ]
 
 USER ${RUNNER_USER}

@@ -15,4 +15,8 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: calling into VM
+        run: /vm_exec uname -a
+      - name: calling into VM 2
+        run: /vm_exec ls -la /
       - run: echo "🍏 This job's status is ${{ job.status }}."

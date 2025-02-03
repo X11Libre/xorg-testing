@@ -18,8 +18,11 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      # always doing this for updating VMs host key
       - name: calling into VM
         run: /vm_exec uname -a
       - name: calling into VM 2
         run: /vm_exec ls -la /
+      - name: copy over ourself
+        run: ls -la
       - run: echo "🍏 This job's status is ${{ job.status }}."

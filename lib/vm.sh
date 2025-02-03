@@ -100,6 +100,10 @@ vm_start() {
         "$@"
 }
 
+boot_vm_daemon() {
+    vm_start --daemonize -display none
+}
+
 boot_vm_console() {
     vm_start -nographic -serial mon:stdio "$@"
 }

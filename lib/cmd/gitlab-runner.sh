@@ -15,6 +15,8 @@ CFNAME="${CFNAME/gitlab-runner-/}"
 
 GITHUB_LABELS="vm-$CFNAME"
 
+boot_and_wait_for_vm
+
 ( cd github && docker build . -t $IMAGE_TAG )
 
 GITHUB_ORG=X11Libre

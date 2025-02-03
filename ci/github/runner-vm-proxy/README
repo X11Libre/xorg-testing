@@ -1,0 +1,26 @@
+gitlab self-hosted runner docker image: VM proxy
+------------------------------------------------
+
+Self-hosted github runner, used as proxy to local VMs.
+
+Problem:
+
+* we already have scripts for spawning VMs of different OSes and running the
+  whole build chain within those. Running those on Github directly isn't
+  possible (except maybe w/ very expensive enterprise accounts), thus we'll
+  have to resort to self-hosted runners.
+* gitlab runner isn't available for most of Xorg's target platforms, so we
+  can't run it directly inside our builder VMs
+
+Solution:
+
+* use a separate docker image with the gitlab runner (running on the same host
+  as the VM) as a proxy
+* some scripts (eg. /vm_exec, /vm_copy_to, ...) are used to talk to the VM
+
+Prerequisites:
+    * access token for your org:
+      eg. user token w/ admin with admin permissions on the org
+    * write that token into ~/.github-token-xlibre
+    * allow public repos in your org's default runner group
+    * use the gitlab-runner-* scripts to start up the runner for particular target

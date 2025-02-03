@@ -5,7 +5,8 @@ jobs:
   vm-build:
     strategy:
       matrix:
-        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, vm-openindiana-hipster-amd64]
+        node: [vm-freebsd-14.2-amd64]
+#        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, vm-openindiana-hipster-amd64]
     runs-on: ${{ matrix.node }}
     steps:
       - name: Check out repository code

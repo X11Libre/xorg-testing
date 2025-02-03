@@ -1,0 +1,5 @@
+
+Prerequisites:
+    * access token for your org:
+      eg. user token w/ admin with admin permissions on the org
+    * write it into ~/.github-token-xlibre

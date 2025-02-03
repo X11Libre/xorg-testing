@@ -14,7 +14,8 @@ RUN apt-get update -y && \
         curl \
         liblttng-ust1 \
         libicu72 \
-        ssh
+        ssh \
+        jq
 
 RUN curl -o /tmp/${RUNNER_TARBALL} \
     -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/${RUNNER_TARBALL}

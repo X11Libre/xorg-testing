@@ -5,7 +5,7 @@ jobs:
   vm-build:
     strategy:
       matrix:
-        node: [vm-freebsd-14.2-amd64]
+        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64]
 #        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, vm-openindiana-hipster-amd64]
     runs-on: ${{ matrix.node }}
     steps:
@@ -16,4 +16,5 @@ jobs:
       - name: copy over ourself into VM
         run: /vm_copy_to /xorg-testing etc lib build-*
       - name: execute in VM
-        run: /vm_exec "cd /xorg-testing && ./build-testing-jail force"
+#        run: /vm_exec "cd /xorg-testing && ./build-testing-jail force"
+        run: /vm_exec "cd /xorg-testing && ./build-testing-jail "

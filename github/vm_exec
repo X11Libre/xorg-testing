@@ -5,3 +5,5 @@ if [ ! "$VM_PORT" ]; then
 fi
 
 echo "VM_PORT=$VM_PORT"
+
+ssh root@localhost -p $VM_PORT "$@"

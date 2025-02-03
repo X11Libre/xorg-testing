@@ -1,11 +1,11 @@
-name: GitHub Actions Demo
+name: VM runner test
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     strategy:
       matrix:
-        node: [vm-freebsd-14.2-amd64]
+        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64]
     runs-on: ${{ matrix.node }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."

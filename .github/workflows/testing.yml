@@ -10,11 +10,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      # always doing this for updating VMs host key
-      - name: calling into VM
+      - name: accept VMs host key
         run: /vm_exec uname -a
-      - name: copy over ourself
+      - name: copy over ourself into VM
         run: /vm_copy_to /xorg-testing etc lib build-*
-      - name: executing build job in VM
-        run: /vm_exec "cd /xorg-testing && ./build-testing-jail"
+      - name: execute in VM
+        run: /vm_exec "cd /xorg-testing && ./build-testing-jail force"
       - run: echo "🍏 This job's status is ${{ job.status }}."

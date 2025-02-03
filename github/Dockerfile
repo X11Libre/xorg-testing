@@ -30,6 +30,7 @@ RUN chown -R ${RUNNER_USER}:${RUNNER_USER} ${RUNNER_HOME}
 
 ADD start.sh /start.sh
 ADD vm_exec /vm_exec
+ADD vm_copy_ro /vm_copy_to
 ENTRYPOINT [ "/start.sh" ]
 
 USER ${RUNNER_USER}

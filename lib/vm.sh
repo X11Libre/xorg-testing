@@ -151,7 +151,7 @@ boot_and_wait_for_vm() {
 }
 
 vm_exec() {
-    ssh -p "$VM_SSH_PORT" root@localhost "$@"
+    ssh -o "StrictHostKeyChecking=no" -p "$VM_SSH_PORT" root@localhost "$@"
 }
 
 vm_install_netbsd() {

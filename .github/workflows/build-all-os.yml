@@ -1,11 +1,11 @@
-name: VM runner test
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: build all platforms
+run-name: ${{ github.actor }} is running build on all platforms
 on: [push]
 jobs:
   vm-build:
     strategy:
       matrix:
-        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, openindiana-hipster-amd64]
+        node: [vm-freebsd-14.2-amd64, vm-netbsd-10.1-amd64, vm-openindiana-hipster-amd64]
     runs-on: ${{ matrix.node }}
     steps:
       - name: Check out repository code
@@ -16,4 +16,3 @@ jobs:
         run: /vm_copy_to /xorg-testing etc lib build-*
       - name: execute in VM
         run: /vm_exec "cd /xorg-testing && ./build-testing-jail force"
-      - run: echo "🍏 This job's status is ${{ job.status }}."

@@ -4,6 +4,6 @@ if [ ! "$VM_PORT" ]; then
     echo "$0: missing VM_PORT"
 fi
 
-echo "VM_PORT=$VM_PORT"
+VM_USER=root
 
-ssh root@localhost -p $VM_PORT "$@"
+ssh "$VM_USER@$VM_HOST" -p "$VM_PORT" "$@"

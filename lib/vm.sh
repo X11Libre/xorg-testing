@@ -78,9 +78,15 @@ vm_opt_bios() {
     fi
 }
 
+vm_pidfile() {
+    mkdir -p "$SCRIPT_ROOT_DIR/vm/pid"
+    echo -n "$SCRIPT_ROOT_DIR/vm/pid/$OS_TYPE-$OS_RELEASE-$OS_ARCH.pid"
+}
+
 vm_start() {
     unpack_image
     qemu-system-$VM_QEMU_ARCH \
+        -pidfile `vm_pidfile` \
         -name "$VM_NAME" \
         -smp "$VM_CORES" \
         -m "$VM_MEMSIZE" \

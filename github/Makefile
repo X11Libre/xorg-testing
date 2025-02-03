@@ -5,7 +5,7 @@ GITHUB_TOKEN := $(shell cat $(HOME)/.github-token-xlibre)
 GITHUB_URL := https://github.com/$(GITHUB_ORG)
 GITHUB_LABELS := vm-freebsd-14.2-amd64
 
-VM_PORT := 2022
+VM_SSH_PORT := 2022
 
 all: image
 
@@ -18,5 +18,5 @@ runner-xlibre: image
             -e GITHUB_ORG="$(GITHUB_ORG)" \
             -e GITHUB_TOKEN="$(GITHUB_TOKEN)" \
             -e GITHUB_LABELS="$(GITHUB_LABELS)" \
-            -e VM_PORT="$(VM_PORT)" \
+            -e VM_SSH_PORT="$(VM_SSH_PORT)" \
             $(IMAGE_TAG)

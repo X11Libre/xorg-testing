@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ ! "$VM_PORT" ]; then
+    echo "$0: missing VM_PORT"
+fi
+
+VM_USER=root
+
+TARGET="$1"
+shift
+
+scp -P "$VM_SSH_PORT" -r $@ root@$VM_HOST:$TARGET

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ ! "$VM_PORT" ]; then
-    echo "$0: missing VM_PORT"
+if [ ! "$VM_SSH_PORT" ]; then
+    echo "$0: missing VM_SSH_PORT"
 fi
 
 VM_USER=root
 
-ssh "$VM_USER@$VM_HOST" -p "$VM_PORT" "$@"
+ssh -o "StrictHostKeyChecking=no" "$VM_USER@$VM_HOST" -p "$VM_SSH_PORT" "$@"

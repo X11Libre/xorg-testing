@@ -11,7 +11,7 @@ die() {
 [ "$GITHUB_TOKEN"  ] || die "missing token"
 [ "$GITHUB_ORG"    ] || die "missing organisation"
 [ "$GITHUB_LABELS" ] || die "missing GITHUB_LABELS"
-[ "$VM_PORT"       ] || die "missing VM port"
+[ "$VM_SSH_PORT"   ] || die "missing VM_SSH_PORT"
 
 cd /home/github_runner
 

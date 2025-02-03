@@ -29,5 +29,5 @@ docker run -it --rm \
     -e GITHUB_TOKEN="$GITHUB_TOKEN" \
     -e GITHUB_LABELS="$GITHUB_LABELS" \
     -e VM_HOST=172.17.0.1 \
-    -e VM_PORT="$VM_SSH_PORT" \
+    -e VM_SSH_PORT="$VM_SSH_PORT" \
     $IMAGE_TAG

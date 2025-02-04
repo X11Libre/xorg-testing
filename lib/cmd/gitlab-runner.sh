@@ -17,7 +17,7 @@ GITHUB_LABELS="vm-$CFNAME"
 
 boot_and_wait_for_vm
 
-docker build ci/github-runner -t $IMAGE_TAG
+docker build ci/github/runner-vm-proxy -t $IMAGE_TAG
 
 GITHUB_ORG=X11Libre
 GITHUB_TOKEN=$(cat $HOME/.github-token-xlibre)

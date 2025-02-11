@@ -13,7 +13,7 @@ SOURCE_XORGPROTO_REPO="https://gitlab.freedesktop.org/xorg/proto/xorgproto.git"
 SOURCE_XORGPROTO_REF="xorgproto-2024.1"
 
 SOURCE_LIBDRM_REPO="https://gitlab.freedesktop.org/mesa/drm.git"
-SOURCE_LIBDRM_REF="master"
+SOURCE_LIBDRM_REF="libdrm-2.4.124"
 
 SOURCE_XF86_INPUT_EVDEV_REPO="https://gitlab.freedesktop.org/xorg/driver/xf86-input-evdev.git"
 SOURCE_XF86_INPUT_EVDEV_REF="xf86-input-evdev-2.11.0"

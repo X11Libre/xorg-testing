@@ -50,3 +50,7 @@ SOURCE_XF86_VIDEO_VMWARE_REF="incubate"
 # testing branch
 SOURCE_XF86_VIDEO_WSFB_REPO="https://gitlab.freedesktop.org/metux/xf86-video-wsfb.git"
 SOURCE_XF86_VIDEO_WSFB_REF="incubate"
+
+# testing branch
+SOURCE_XF86_INPUT_LIBINPUT_REPO="https://gitlab.freedesktop.org/metux/xf86-input-libinput.git"
+SOURCE_XF86_INPUT_LIBINPUT_REF="incubate"

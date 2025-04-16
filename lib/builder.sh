@@ -151,7 +151,7 @@ build_package() {
         log "building by autotools: $id"
         chmod +x $workdir/autogen.sh
         cd $workdir/_build
-        ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" $workdir/autogen.sh --prefix="$XORG_PREFIX" $args
+        ACLOCAL_PATH="$XORG_PREFIX/share/aclocal:/usr/share/aclocal" $workdir/autogen.sh --prefix="$XORG_PREFIX" $args "$@"
         $TARGET_MAKE
         $TARGET_MAKE install
     )
@@ -165,4 +165,12 @@ build_package() {
     )
     fi
     mark_done "$id"
+}
+
+build_driver() {
+    local id="$1"
+    shift
+    log "building driver: $id"
+
+    build_package "$id" --with-xorg-module-dir="$XORG_PREFIX/lib/${TARGET_CC_ARCH}/xorg/modules"
 }

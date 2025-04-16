@@ -61,7 +61,7 @@ build_package xkbcomp
 build_package font-xfree86-type-1
 
 for i in $XORG_DRIVERS ; do
-    build_package $i
+    build_driver $i
 done
 
 fc-cache

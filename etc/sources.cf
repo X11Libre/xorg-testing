@@ -7,10 +7,6 @@
 SOURCE_XSERVER_REPO="https://gitlab.freedesktop.org/metux/xserver.git"
 SOURCE_XSERVER_REF="incubate" # for collected open MRs use branch "incubate"
 
-# needs some fixes
-SOURCE_LIBDRM_REPO="https://gitlab.freedesktop.org/metux/drm.git"
-SOURCE_LIBDRM_REF="incubate"
-
 # incubator branch
 SOURCE_XF86_VIDEO_AMDGPU_REPO="https://gitlab.freedesktop.org/metux/xf86-video-amdgpu.git"
 SOURCE_XF86_VIDEO_AMDGPU_REF="incubate"
